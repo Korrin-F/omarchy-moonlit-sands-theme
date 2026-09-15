@@ -1,0 +1,39 @@
+# Starter palette: neutral greys so a new theme applies and visibly reads as
+# not designed yet. Set mode to "light" or "dark" first. Replace every value
+# at the palette step and delete this note when the palette is settled.
+mode = "dark"
+
+# Signature colour, selected text or row, borders and secondary UI
+accent = "#5a5a5a"
+selection = "#c0c0c0"
+muted = "#9a9a9a"
+
+# Surfaces: page, raised (hover, selection, cards; darker than background on a
+# light theme), panels and sidebars, dividers and deepest recess
+background = "#e6e6e6"
+lighter_background = "#d4d4d4"
+dark_background = "#dcdcdc"
+darker_background = "#c8c8c8"
+
+# Text: body, dimmed, secondary, cursor and strongest text
+foreground = "#262626"
+dark_foreground = "#6e6e6e"
+light_foreground = "#4a4a4a"
+bright_foreground = "#262626"
+
+# Terminal palette and syntax highlighting
+red = "#c0392b"
+yellow = "#b7950b"
+orange = "#d35400"
+green = "#1e8449"
+cyan = "#148f9d"
+blue = "#1f5fbf"
+magenta = "#8e44ad"
+brown = "#7b5b3a"
+
+bright_red = "#c0392b"
+bright_yellow = "#b7950b"
+bright_green = "#1e8449"
+bright_cyan = "#148f9d"
+bright_blue = "#1f5fbf"
+bright_magenta = "#8e44ad"
