@@ -1,39 +1,65 @@
-# Starter palette: neutral greys so a new theme applies and visibly reads as
-# not designed yet. Set mode to "light" or "dark" first. Replace every value
-# at the palette step and delete this note when the palette is settled.
+# Moonlit Sands: a dark theme built from the wallpapers in backgrounds/, the night companion of Sunlit Sands.
+# Surfaces and light are sampled from the open flat (1-sonoran-desert-flat) and the dry riverbed's moon.
+# Contrast ratios in comments are against `background`.
+
 mode = "dark"
 
-# Signature colour, selected text or row, borders and secondary UI
-accent = "#5a5a5a"
-selection = "#c0c0c0"
-muted = "#9a9a9a"
+# The moon's brightest highlights, sampled from the riverbed moon: links, focus rings, bar highlights and the active window border, 9.7:1.
+accent = "#eeba8a"
+# Window borders. Omarchy's Hyprland template reads these two keys when present (otherwise a stock grey for
+# unfocused and the accent for focused); each takes one colour or a gradient of slot names plus an angle.
+# Unfocused: the panel sky, so idle frames sit in the night.
+hyprland_inactive_border = "dark_background"
+# Focused: dim moon at the top edge to the moon's highlight at the bottom, so the frame reads as lit from low down.
+hyprland_active_border = "dark_foreground accent 90deg"
+# The darkest lit sand of the open flat: selected text sits on ground the moon has reached, 1.6:1 over the page. Body text on it is 4.9:1.
+selection = "#473a39"
+# The faintest stars, sampled from the open flat's sky: Zed's file panel names, inactive tab labels, line numbers and comments, 3.6:1 on background, 3.9:1 on dark_background. Also the btop gradient middle.
+muted = "#6a7583"
 
-# Surfaces: page, raised (hover, selection, cards; darker than background on a
-# light theme), panels and sidebars, dividers and deepest recess
-background = "#e6e6e6"
-lighter_background = "#d4d4d4"
-dark_background = "#dcdcdc"
-darker_background = "#c8c8c8"
+# The four surfaces are the open flat's night sky, sampled.
+# background is the body of the sky; dark_background the top of the frame; darker_background the darkest sky cluster across all six wallpapers.
+# lighter_background is the raised surface (hover, selected rows, cards): lit sand sampled from the open flat's ground, 1.8:1 over the page, so a hovered row is ground the moon reaches.
+background = "#141d2d"
+lighter_background = "#54443b"
+dark_background = "#0e1622"
+darker_background = "#0b111e"
 
-# Text: body, dimmed, secondary, cursor and strongest text
-foreground = "#262626"
-dark_foreground = "#6e6e6e"
-light_foreground = "#4a4a4a"
-bright_foreground = "#262626"
+# Moonlight text: the moon's disc, sampled from the open flat.
+# 7.6:1
+foreground = "#eb9d52"
+# 3.7:1 on background, 4.0:1 on dark_background; dimmed text, placeholders and disabled items. The disc with lightness and colour lowered together.
+dark_foreground = "#a26a34"
+# 5.0:1, secondary text and btop graph labels. The disc with lightness and colour lowered together.
+light_foreground = "#bd7d40"
+# cursor and terminal bright white: the disc lifted one step, 10.1:1
+bright_foreground = "#fbbb82"
 
-# Terminal palette and syntax highlighting
-red = "#c0392b"
-yellow = "#b7950b"
-orange = "#d35400"
-green = "#1e8449"
-cyan = "#148f9d"
-blue = "#1f5fbf"
-magenta = "#8e44ad"
-brown = "#7b5b3a"
+# Terminal colours: Sunlit Sands' eight hues under the moon. Each day colour with 30% of its chroma removed at the same
+# lightness, then pulled toward the moon's disc in OKLab: a quarter of the way for the six warm colours, a tenth for blue
+# and cyan so they stay blue. Normals sit near 3.2:1 on the page, brown lower.
+# coral rust, 3.3:1
+red = "#ac5539"
+# sun-gold, 3.3:1
+yellow = "#8d662c"
+# sun-warmed rock, 3.3:1
+orange = "#a25a32"
+# sage, 3.1:1
+green = "#696e35"
+# turquoise, 3.1:1
+cyan = "#4b7172"
+# cerulean, 3.2:1
+blue = "#4e6f91"
+# violet of the far mountains, 3.3:1
+magenta = "#8b6377"
+# dry wood, 2.5:1
+brown = "#795331"
 
-bright_red = "#c0392b"
-bright_yellow = "#b7950b"
-bright_green = "#1e8449"
-bright_cyan = "#148f9d"
-bright_blue = "#1f5fbf"
-bright_magenta = "#8e44ad"
+# Bright variants: Sunlit Sands' bright values treated the same way, about 4.3:1 to 4.6:1 against background,
+# so bold and bright terminal text is clearly brighter than normal.
+bright_red = "#cb6647"
+bright_yellow = "#a37a39"
+bright_green = "#7e8844"
+bright_cyan = "#5d8e90"
+bright_blue = "#6089b2"
+bright_magenta = "#a67892"
