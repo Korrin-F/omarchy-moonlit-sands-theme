@@ -5,35 +5,35 @@
 mode = "dark"
 
 # The moon's brightest highlights, sampled from the riverbed moon: links, focus rings, bar highlights and the active window border, 9.7:1.
-accent = "#eeba8a"
+accent = "#eb9d52"
 # Window borders. Omarchy's Hyprland template reads these two keys when present (otherwise a stock grey for
 # unfocused and the accent for focused); each takes one colour or a gradient of slot names plus an angle.
 # Unfocused: the panel sky, so idle frames sit in the night.
 hyprland_inactive_border = "dark_background"
 # Focused: dim moon at the top edge to the moon's highlight at the bottom, so the frame reads as lit from low down.
-hyprland_active_border = "dark_foreground accent 90deg"
+hyprland_active_border = "accent bright_foreground 90deg"
 # The darkest lit sand of the open flat: selected text sits on ground the moon has reached, 1.6:1 over the page. Body text on it is 4.9:1.
-selection = "#473a39"
+selection = "#4e403c"
 # The faintest stars, sampled from the open flat's sky: Zed's file panel names, inactive tab labels, line numbers and comments, 3.6:1 on background, 3.9:1 on dark_background. Also the btop gradient middle.
-muted = "#6a7583"
+muted = "#8b7d71"
 
 # The four surfaces are the open flat's night sky, sampled.
 # background is the body of the sky; dark_background the top of the frame; darker_background the darkest sky cluster across all six wallpapers.
 # lighter_background is the raised surface (hover, selected rows, cards): lit sand sampled from the open flat's ground, 1.8:1 over the page, so a hovered row is ground the moon reaches.
 background = "#141d2d"
-lighter_background = "#54443b"
+lighter_background = "#41332f"
 dark_background = "#0e1622"
 darker_background = "#0b111e"
 
 # Moonlight text: the moon's disc, sampled from the open flat.
 # 7.6:1
-foreground = "#eb9d52"
+foreground = "#e0a269"
 # 3.7:1 on background, 4.0:1 on dark_background; dimmed text, placeholders and disabled items. The disc with lightness and colour lowered together.
-dark_foreground = "#a26a34"
+dark_foreground = "#9a6e45"
 # 5.0:1, secondary text and btop graph labels. The disc with lightness and colour lowered together.
-light_foreground = "#bd7d40"
+light_foreground = "#b48153"
 # cursor and terminal bright white: the disc lifted one step, 10.1:1
-bright_foreground = "#fbbb82"
+bright_foreground = "#eeba8a"
 
 # Terminal colours: Sunlit Sands' eight hues under the moon. Each day colour with 30% of its chroma removed at the same
 # lightness, then pulled toward the moon's disc in OKLab: a quarter of the way for the six warm colours, a tenth for blue
