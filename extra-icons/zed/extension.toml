@@ -1,0 +1,21 @@
+id = "omarchy-icons"
+name = "Moonlit Sands Icons"
+version = "1.0.0"
+schema_version = 1
+description = "File icons for the Moonlit Sands Omarchy theme: the Catppuccin icon shapes in the theme's colours"
+repository = "https://github.com/Korrin-F/omarchy-moonlit-sands-theme"
+authors = ["Korrin-F"]
+themes = []
+icon_themes = ["icon_themes/omarchy-icons.json"]
+languages = []
+capabilities = []
+
+[lib]
+
+[grammars]
+
+[language_servers]
+
+[context_servers]
+
+[slash_commands]

@@ -1,38 +1,39 @@
 # Moonlit Sands: a dark theme built from the wallpapers in backgrounds/, the night companion of Sunlit Sands.
-# Surfaces and light are sampled from the open flat (1-sonoran-desert-flat) and the dry riverbed's moon.
+# The sky and the lit ground are sampled from the open flat (1-sonoran-desert-flat); the text is the open flat's moon and
+# the dry riverbed's moon highlight; the terminal colours are Sunlit Sands' hues drained and pulled toward the moon.
 # Contrast ratios in comments are against `background`.
 
 mode = "dark"
 
-# The moon's brightest highlights, sampled from the riverbed moon: links, focus rings, bar highlights and the active window border, 9.7:1.
+# The moon's disc, sampled from the open flat, the truest moon gold: links, focus and hover rings, bar highlights and the top of the active window border, 7.6:1.
 accent = "#eb9d52"
 # Window borders. Omarchy's Hyprland template reads these two keys when present (otherwise a stock grey for
 # unfocused and the accent for focused); each takes one colour or a gradient of slot names plus an angle.
 # Unfocused: the panel sky, so idle frames sit in the night.
 hyprland_inactive_border = "dark_background"
-# Focused: dim moon at the top edge to the moon's highlight at the bottom, so the frame reads as lit from low down.
+# Focused: the disc at the top edge to the riverbed highlight at the bottom, darker above and lighter below, so the frame reads as lit from low down.
 hyprland_active_border = "accent bright_foreground 90deg"
-# The darkest lit sand of the open flat: selected text sits on ground the moon has reached, 1.6:1 over the page. Body text on it is 4.9:1.
+# The edge of the open flat's lit path, sampled: selected text and the chosen row sit on ground the moon has reached, 1.7:1 over the page. Body text on it is 4.5:1.
 selection = "#4e403c"
-# The faintest stars, sampled from the open flat's sky: Zed's file panel names, inactive tab labels, line numbers and comments, 3.6:1 on background, 3.9:1 on dark_background. Also the btop gradient middle.
+# Drained moonlight, not a sample: the body text's hue at low chroma and lightness 0.60, warm so it separates from the blue code. Line numbers, comments, inactive labels, panel names and dimmed text in the terminal agents; 4.2:1 on background, 4.6:1 on dark_background, 3.0:1 on the hover row.
 muted = "#8b7d71"
 
-# The four surfaces are the open flat's night sky, sampled.
+# The three sky surfaces are the open flat's night sky, sampled; the raised surface is derived from selection.
 # background is the body of the sky; dark_background the top of the frame; darker_background the darkest sky cluster across all six wallpapers.
-# lighter_background is the raised surface (hover, selected rows, cards): lit sand sampled from the open flat's ground, 1.8:1 over the page, so a hovered row is ground the moon reaches.
+# lighter_background is the hover row: selection one step darker by rule (same hue and chroma, OKLab lightness minus 0.05), 1.4:1 over the page, so hover is recessed sand and the chosen row the lit sand.
 background = "#141d2d"
 lighter_background = "#41332f"
 dark_background = "#0e1622"
 darker_background = "#0b111e"
 
-# Moonlight text: the moon's disc, sampled from the open flat.
-# 7.6:1
+# Moonlight text: the moon's disc, sampled from the open flat, with 20% of its chroma removed so long reading does not tire.
+# 7.7:1, 5.5:1 on the hover row
 foreground = "#e0a269"
-# 3.7:1 on background, 4.0:1 on dark_background; dimmed text, placeholders and disabled items. The disc with lightness and colour lowered together.
+# 3.8:1 on background, 4.1:1 on dark_background; dimmed text, placeholders and disabled items. The disc with lightness and colour lowered together, drained like the body text.
 dark_foreground = "#9a6e45"
-# 5.0:1, secondary text and btop graph labels. The disc with lightness and colour lowered together.
+# 5.0:1, secondary text and graph labels. The disc with lightness and colour lowered together, drained like the body text.
 light_foreground = "#b48153"
-# cursor and terminal bright white: the disc lifted one step, 10.1:1
+# The riverbed moon's highlight, sampled: cursor, bold text, terminal bright white and the bottom of the active window border, 9.7:1
 bright_foreground = "#eeba8a"
 
 # Terminal colours: Sunlit Sands' eight hues under the moon. Each day colour with 30% of its chroma removed at the same

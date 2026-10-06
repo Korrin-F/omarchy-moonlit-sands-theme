@@ -1,0 +1,343 @@
+/* Omarchy Theme for Obsidian: Moonlit Sands, hand-shipped copy.
+   Omarchy's built-in template puts every Obsidian surface on `background`. A theme's own obsidian.css
+   takes the place of the template's output, and this one is shipped so the chrome (sidebars, icon
+   ribbon, tab strip, title bar) takes `dark_background`, the top of the night sky, and the page stays
+   on the body of the sky. It carries real values, not placeholders: when colors.toml changes,
+   regenerate from the template and re-apply these edits.
+   Mapping: page = background #141d2d, and the active tab with it; the "alt" surface (settings cards and
+   the editor's active line) = dark_background #0e1622; sidebars, ribbon, tab strip, title bar, menus,
+   buttons and dropdowns = dark_background #0e1622; hover = lighter_background #41332f; the selected or
+   active row and the pressed state = selection #4e403c; dividers = darker_background #0b111e (the
+   template used muted, which drew heavy lines across the page); form fields = background #141d2d.
+   Changes from the template: dimmed text (--text-muted, --text-faint) solid muted #8b7d71 and
+   dark_foreground #9a6e45, replacing translucent moonlight mixes; hover and selected are a pair, hover
+   on lighter_background and the selected row, active control and pressed state on selection, one step
+   lighter, where the template set neither; tag pills lighter_background with foreground #e0a269 text,
+   hover on selection; scrollbars on lighter_background / accent; --background-modifier-form-field on
+   the page colour; --accent-h/s/l set to accent as hsl(29, 79%, 62%) so Obsidian's composed
+   --color-accent (canvas controls, node handles) matches, and --interactive-hover set to
+   lighter_background; --text-on-accent and the text of tooltips and notices set to background, since
+   Obsidian's white text does not read on the gold accent or the foreground fill; canvas node swatches
+   mapped to the bright variants of red, yellow, green, cyan and magenta (orange has none), dot grid
+   muted #8b7d71; callout fill restated at 25% and border at full strength, canvas card fill at 20%,
+   because Obsidian's hard-coded strengths vanish on the night page; callout type
+   colours mapped to palette slots as plain hex (Obsidian composes their tint with color-mix, so an
+   r,g,b triple is invalid); --code-background solid dark_background #0e1622, the same as the settings
+   cards and the active line; the full --code-* family and a longer .cm-* list replace Obsidian's syntax
+   defaults, every value a palette slot; a tag keeps --tag-color when rendered inside a widget such as a
+   table (the template's link-colour rule was overriding it); inline code text is bright_cyan #5d8e90,
+   distinct from the external-link blue (was the template's cyan), distinct from tags; --graph-node-tag
+   left as the template's cyan on purpose, since colour there codes node type rather than text; headings
+   step down in brightness instead of the template's rainbow: h1 bright_foreground #eeba8a, h2 accent
+   #eb9d52, h3 light_foreground #b48153, h4 bright_yellow #a37a39, h5/h6 muted; internal links accent
+   #eb9d52, external links blue #4e6f91, in both the editor and reading view; editor hashtags restated
+   on the tag colour.
+   Everything below started as the template's output; the syntax-highlighting list, the tag rules, the
+   tooltip text rule, the callouts, the canvas and the audited gaps are hand written. */
+
+.theme-dark, .theme-light {
+  /* Core colors */
+  --background-primary: #141d2d;
+  --background-primary-alt: #0e1622;
+  --background-secondary: #0e1622;
+  --background-secondary-alt: #41332f;
+  --text-normal: #e0a269;
+
+  /* Chrome: icon ribbon, title bar, tab strip take the panel colour */
+  --ribbon-background: #0e1622;
+  --titlebar-background: #0e1622;
+  --titlebar-background-focused: #0e1622;
+  --tab-container-background: #0e1622;
+
+  /* Hover on lighter_background; the selected row, an active control and the pressed state on
+     selection, one step lighter, so hover and selected stay distinct. */
+  --background-modifier-hover: #41332f;
+  --background-modifier-active-hover: #4e403c;
+  --nav-item-background-active: #4e403c;
+  --nav-item-background-hover: #41332f;
+
+  /* Selection colors */
+  --text-selection: #4e403c;
+
+  /* Border color */
+  --background-modifier-border: #0b111e;
+  /* Scrollbars: solid palette colours. Resting on lighter_background, accent under the
+     pointer and while dragging. Obsidian draws both of those states from one variable,
+     so there are two values here, not three. */
+  --scrollbar-bg: transparent;
+  --scrollbar-thumb-bg: #41332f;
+  --scrollbar-active-thumb-bg: #eb9d52;
+
+  /* Semantic heading colors */
+  --text-title-h1: #eeba8a;
+  --text-title-h2: #eb9d52;
+  --text-title-h3: #b48153;
+  --text-title-h4: #a37a39;
+  --text-title-h5: #8b7d71;
+  --text-title-h6: #8b7d71;
+
+  /* Links and accents */
+  --text-link: #eb9d52;
+  --link-color: #eb9d52;
+  --link-external-color: #4e6f91;
+  /* Obsidian builds its accent from three numbers and composes --color-accent from them, so setting
+     --interactive-accent alone left everything using --color-accent on Obsidian's default purple
+     (hue 258): the canvas control buttons, the handles that appear on a node when hovered, and more.
+     These are accent #eb9d52 expressed as hue, saturation and lightness. */
+  --accent-h: 29;
+  --accent-s: 79%;
+  --accent-l: 62%;
+  /* Hover on Obsidian's own controls, for example the canvas buttons. */
+  --interactive-hover: #41332f;
+  /* Text inputs: the search box and every settings field, on the page colour rather than the
+     chrome around them. */
+  --background-modifier-form-field: #141d2d;
+  --text-accent: #eb9d52;
+  --text-accent-hover: #eb9d52;
+  --interactive-accent: #eb9d52;
+  --interactive-accent-hover: #eb9d52;
+  /* Text on accent fills, such as the main call-to-action button. Obsidian's white does not read
+     on the gold accent, so it takes the page colour. */
+  --text-on-accent: #141d2d;
+
+  /* Muted text */
+  --text-muted: #8b7d71;
+  --text-faint: #9a6e45;
+
+  /* Code. Obsidian exposes a --code-* variable per token type; the template set only
+     --code-normal, so every other token fell back to Obsidian's defaults, which belong to
+     no palette slot. Every value below is a slot. --code-normal is the text of inline code
+     and of unhighlighted code, blue to match Claude Code. */
+  /* Code blocks on solid dark_background, the same colour as the settings cards and the editor's
+     active line. Obsidian would take it from --background-primary-alt; setting it here keeps code
+     blocks on this colour if that surface changes. */
+  --code-background: #0e1622;
+  --code-normal: #5d8e90;
+  --code-comment: #8b7d71;
+  --code-function: #4e6f91;
+  --code-important: #a25a32;
+  --code-keyword: #ac5539;
+  --code-operator: #b48153;
+  --code-property: #4b7172;
+  --code-punctuation: #b48153;
+  --code-string: #696e35;
+  --code-tag: #8b6377;
+  --code-value: #8d662c;
+
+  /* Errors and success */
+  --text-error: #ac5539;
+  --text-error-hover: #ac5539;
+  --text-success: #696e35;
+
+  /* Tags */
+  --tag-color: #e0a269;
+  --tag-background: #41332f;
+
+  /* Callouts. Obsidian derives a callout's title, icon, left border and tinted background
+     from one colour per type, given as an ordinary colour: Obsidian's own defaults are
+     var(--color-blue) and a grey, and it fades them with color-mix, so a bare r,g,b triple
+     is not a valid value here. Untouched, these are Obsidian's own defaults, none of them
+     palette colours. Below, the default and todo take the accent, information takes blue
+     and cyan, severity ramps warm from green through yellow and orange to red, and quote
+     recedes to muted. Note there is no --callout-note: a note callout is the default type. */
+  --callout-default: #eb9d52;
+  --callout-info: #4e6f91;
+  --callout-summary: #4b7172;
+  --callout-todo: #eb9d52;
+  --callout-tip: #4b7172;
+  --callout-success: #696e35;
+  --callout-question: #8b6377;
+  --callout-warning: #8d662c;
+  --callout-fail: #a25a32;
+  --callout-error: #ac5539;
+  --callout-bug: #ac5539;
+  --callout-example: #8b6377;
+  --callout-quote: #8b7d71;
+  --callout-important: #a25a32;
+  /* Border at full strength; Obsidian's quarter-strength border vanishes on the night page. */
+  --callout-border-opacity: 1;
+
+  /* Gaps found by auditing every colour variable Obsidian defines against what this theme reaches. These were still Obsidian's own defaults. Ordered by how often each is used. */
+
+  /* Buttons and dropdowns, 21 uses, on the chrome colour. */
+  --interactive-normal: #0e1622;
+
+  /* Focus ring on every button, setting and field, 45 uses, in the accent. */
+  --background-modifier-border-focus: #eb9d52;
+
+  /* Hover ring on inputs, 18 uses, and the source of six more: menu border, tab divider,
+     slider track, pill hover, swatch and property box shadow. One value closes seven gaps. */
+  --background-modifier-border-hover: #0b111e;
+
+  /* Tooltips and every notification toast, 9 uses, filled with foreground. Their text is set
+     by the tooltip rule after this block. */
+  --background-modifier-message: #e0a269;
+
+  /* ==Highlighted text== and matched text in search results, on selection. */
+  --text-highlight-bg: #4e403c;
+  --text-highlight-bg-rgb: 78, 64, 60;
+
+  /* Status colours: the last of Obsidian's own hues still showing. Hover states take the
+     bright_* variants so a hovered banner still differs from a resting one. Obsidian defines
+     no hover variable for success. */
+  --background-modifier-error: #ac5539;
+  --background-modifier-error-hover: #cb6647;
+  --background-modifier-error-rgb: 172, 85, 57;
+  --background-modifier-warning: #8d662c;
+  --background-modifier-warning-hover: #a37a39;
+  --background-modifier-success: #696e35;
+  --background-modifier-success-rgb: 105, 110, 53;
+  --text-warning: #8d662c;
+
+  /* The vertical rules in nested lists and in the file tree, by default a flat translucent grey. */
+  --indentation-guide-color: #0b111e;
+  --indentation-guide-color-active: #8b7d71;
+
+  /* The knob on every settings slider and toggle, in the page colour. */
+  --slider-thumb-background: #141d2d;
+  --slider-thumb-background-hover: #141d2d;
+  --toggle-thumb-color: #141d2d;
+
+  /* The note title shown above the body. Obsidian derives it from --h1-color, which this theme never
+     set because Omarchy's template invents its own --text-title-h1 and applies it through a rule of
+     its own, so the title would stay in the body text colour while the body h1 took the heading
+     colour. Pointing it at the theme's own variable keeps the two in step through any future heading
+     change. */
+  --inline-title-color: var(--text-title-h1);
+
+  /* Canvas. Six swatches in the node colour picker; each one draws a node's border and, run through
+     color-mix at 10%, its fill, the same technique as callouts. Plain colours, not r,g,b triples.
+     Obsidian's defaults were red, orange, yellow, green, cyan and purple, which this palette matches
+     one for one. Deliberately NOT set, because Obsidian's own defaults already resolve to this theme:
+     --canvas-background is var(--background-primary), already the page, and
+     --canvas-card-label-color is var(--text-faint), already dark_foreground. Only the dot grid behind
+     the canvas needed a value, since it defaulted to an Obsidian greyscale step. */
+  --canvas-color-1: #cb6647;
+  --canvas-color-2: #a25a32;
+  --canvas-color-3: #a37a39;
+  --canvas-color-4: #7e8844;
+  --canvas-color-5: #5d8e90;
+  --canvas-color-6: #a67892;
+  --canvas-dot-pattern: #8b7d71;
+  /* The colour of a node border or an edge when no swatch is chosen; Obsidian hard-codes a grey here,
+     which is why unstyled arrows were grey. The per-swatch rules are set on the element and still win. */
+  --canvas-color: #8b7d71;
+
+  /* Graph */
+  --graph-line: #8b7d71;
+  --graph-node: #eb9d52;
+  --graph-node-focused: #4e6f91;
+  --graph-node-tag: #4b7172;
+  --graph-node-attachment: #696e35;
+}
+
+/* Headers */
+.cm-header-1, .markdown-rendered h1 { color: var(--text-title-h1); }
+.cm-header-2, .markdown-rendered h2 { color: var(--text-title-h2); }
+.cm-header-3, .markdown-rendered h3 { color: var(--text-title-h3); }
+.cm-header-4, .markdown-rendered h4 { color: var(--text-title-h4); }
+.cm-header-5, .markdown-rendered h5 { color: var(--text-title-h5); }
+.cm-header-6, .markdown-rendered h6 { color: var(--text-title-h6); }
+
+/* Code blocks */
+.markdown-rendered code {
+  color: #5d8e90;
+}
+
+/* Syntax highlighting in the editor. The template covered six token types; the rest
+   inherited Obsidian's defaults, which belong to no palette slot. Every colour below is
+   a palette slot. Identifiers take the full foreground because they are the most common
+   token in a block and should be the easiest to read. */
+.cm-s-obsidian span.cm-keyword { color: #ac5539; }
+.cm-s-obsidian span.cm-string { color: #696e35; }
+.cm-s-obsidian span.cm-string-2 { color: #696e35; }
+.cm-s-obsidian span.cm-number { color: #8d662c; }
+.cm-s-obsidian span.cm-atom { color: #8d662c; }
+.cm-s-obsidian span.cm-comment { color: #8b7d71; }
+.cm-s-obsidian span.cm-meta { color: #8b7d71; }
+.cm-s-obsidian span.cm-operator { color: #b48153; }
+.cm-s-obsidian span.cm-bracket { color: #b48153; }
+.cm-s-obsidian span.cm-punctuation { color: #b48153; }
+.cm-s-obsidian span.cm-def { color: #4e6f91; }
+.cm-s-obsidian span.cm-qualifier { color: #4e6f91; }
+.cm-s-obsidian span.cm-link { color: #4e6f91; }
+.cm-s-obsidian span.cm-builtin { color: #4b7172; }
+.cm-s-obsidian span.cm-property { color: #4b7172; }
+.cm-s-obsidian span.cm-attribute { color: #4b7172; }
+.cm-s-obsidian span.cm-type { color: #8b6377; }
+.cm-s-obsidian span.cm-tag { color: #8b6377; }
+.cm-s-obsidian span.cm-variable { color: #e0a269; }
+.cm-s-obsidian span.cm-variable-2 { color: #e0a269; }
+.cm-s-obsidian span.cm-variable-3 { color: #e0a269; }
+.cm-s-obsidian span.cm-error { color: #ac5539; }
+
+/* Links */
+.markdown-rendered a {
+  color: var(--link-color);
+}
+
+.markdown-rendered a.external-link {
+  color: var(--link-external-color);
+}
+
+/* Tags. A tag is a link, so the rule above repaints it with the link colour, but
+   only where a tag is rendered rather than edited: in Live Preview a tag in a
+   paragraph is a CodeMirror .cm-hashtag and keeps --tag-color, while a tag inside
+   a rendered widget such as a table is .markdown-rendered a.tag and was coming out
+   in the link colour. These rules give tags their own colour back in both places, and
+   replace Obsidian's default hover, a translucent accent tint, with selection, one
+   step lighter than the pill. In the editor the syntax rule for the meta token (muted) is more
+   specific than .cm-hashtag and was winning, so the hashtag rule below restates the tag colour
+   at the same specificity. */
+.markdown-rendered a.tag {
+  color: var(--tag-color);
+}
+
+.cm-s-obsidian span.cm-hashtag {
+  color: var(--tag-color);
+}
+
+.markdown-rendered a.tag:hover,
+.cm-hashtag:hover {
+  color: var(--tag-color);
+  background-color: #4e403c;
+}
+
+/* Tooltips, notices and the editor's code tooltips. Obsidian hard-codes their text near-white,
+   which does not read on the foreground fill set by --background-modifier-message, so the text
+   takes the page colour. */
+.tooltip,
+.notice,
+.cm-tooltip.cm-tooltip-docstring,
+.cm-tooltip.cm-completionInfo {
+  color: #141d2d;
+}
+
+/* Blockquotes */
+.markdown-rendered blockquote {
+  border-left-color: #eb9d52;
+}
+
+/* Active elements */
+.workspace-leaf.mod-active .workspace-leaf-header-title {
+  color: var(--interactive-accent);
+}
+
+.nav-file-title.is-active {
+  color: var(--interactive-accent);
+}
+
+/* Search results */
+.search-result-file-title {
+  color: var(--interactive-accent);
+}
+
+/* Obsidian hard-codes the callout fill at a tenth of the type colour and a canvas card's fill at 7% of
+   its swatch; both vanish on the night page, so the theme restates them stronger. */
+.callout {
+  background-color: color-mix(in oklch, var(--callout-color) 25%, transparent);
+}
+
+.canvas-node.is-themed .canvas-node-content {
+  background-color: color-mix(in oklch, var(--canvas-color) 20%, transparent);
+}

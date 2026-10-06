@@ -1,0 +1,23 @@
+{
+  "name": "omarchy-theme-icons",
+  "displayName": "Moonlit Sands Icons",
+  "description": "File icons for the Moonlit Sands Omarchy theme: the Seti glyphs in the theme's colours",
+  "publisher": "korrin-f",
+  "version": "1.0.0",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.70.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "contributes": {
+    "iconThemes": [
+      {
+        "id": "omarchy-icons",
+        "label": "Moonlit Sands",
+        "path": "./icons/omarchy-icon-theme.json"
+      }
+    ]
+  }
+}
