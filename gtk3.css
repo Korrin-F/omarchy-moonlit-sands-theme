@@ -1,0 +1,331 @@
+/* GTK3 colours for this theme (the portal file chooser, Evince, Inkscape, GNOME Disks and other
+   GTK3 apps). Omarchy installs this file as ~/.local/state/omarchy/current/theme/gtk3.css on every
+   theme change, and ~/.config/gtk-3.0/gtk.css is linked to that. GTK3 reads it at start: reopen an
+   app, and restart xdg-desktop-portal-gtk for the file chooser, to see a change. */
+
+/* Window and content surfaces: background. */
+@define-color theme_bg_color #141d2d;
+@define-color bg_color #141d2d;
+@define-color theme_unfocused_bg_color #141d2d;
+@define-color insensitive_bg_color #141d2d;
+@define-color theme_base_color #141d2d;
+@define-color theme_unfocused_base_color #141d2d;
+@define-color insensitive_base_color #141d2d;
+@define-color content_view_bg #141d2d;
+@define-color text_view_bg #141d2d;
+
+/* Text: foreground; disabled text: muted. */
+@define-color theme_fg_color #e0a269;
+@define-color theme_text_color #e0a269;
+@define-color text_color #e0a269;
+@define-color theme_unfocused_fg_color #e0a269;
+@define-color theme_unfocused_text_color #e0a269;
+@define-color insensitive_fg_color #8b7d71;
+@define-color unfocused_insensitive_color #8b7d71;
+
+/* Selection: accent, background text. GTK3 also uses it as its accent (suggested buttons,
+   switches on, links, progress). */
+@define-color theme_selected_bg_color #eb9d52;
+@define-color selected_bg_color #eb9d52;
+@define-color theme_unfocused_selected_bg_color #eb9d52;
+@define-color theme_selected_fg_color #141d2d;
+@define-color selected_fg_color #141d2d;
+@define-color theme_unfocused_selected_fg_color #141d2d;
+
+/* Borders: darker_background. */
+@define-color borders #0b111e;
+@define-color unfocused_borders #0b111e;
+
+/* Status colours and info bars: yellow, red, green, blue, magenta, with background text. */
+@define-color warning_color #8d662c;
+@define-color error_color #ac5539;
+@define-color success_color #696e35;
+@define-color warning_bg_color #8d662c;
+@define-color warning_fg_color #141d2d;
+@define-color error_bg_color #ac5539;
+@define-color error_fg_color #141d2d;
+@define-color info_bg_color #4e6f91;
+@define-color info_fg_color #141d2d;
+@define-color question_bg_color #8b6377;
+@define-color question_fg_color #141d2d;
+
+/* Window decorations: title text, frame, and title-bar button hover and press. */
+@define-color wm_title #e0a269;
+@define-color wm_unfocused_title #8b7d71;
+@define-color wm_bg_a #0e1622;
+@define-color wm_bg_b #0e1622;
+@define-color wm_shadow #0e1622;
+@define-color wm_border #0b111e;
+@define-color wm_borders_edge #0b111e;
+@define-color wm_highlight #0b111e;
+@define-color wm_button_hover_color_a #41332f;
+@define-color wm_button_hover_color_b #41332f;
+@define-color wm_button_active_color_a #4e403c;
+@define-color wm_button_active_color_b #4e403c;
+@define-color wm_button_active_color_c #4e403c;
+
+/* In-app notifications: dark_background, darker_background edge. */
+@define-color app_notification_a #0e1622;
+@define-color app_notification_b #0e1622;
+@define-color app_notification_c #0e1622;
+@define-color app_notification_border #0b111e;
+
+/* ---- Widget rules ----
+   GTK3's Adwaita derives several colours from shades and mixes of the named colours above,
+   which land on colours that belong to no palette slot. The rules below set solid palette
+   colours instead. User CSS outranks the theme's own, so plain selectors are enough. */
+
+/* Header bars and title bars: dark_background, foreground text, darker_background edge. */
+headerbar, .titlebar, .csd .titlebar { background: #0e1622; color: #e0a269; border-color: #0b111e; box-shadow: none; }
+
+/* Sidebars and the places list: dark_background. */
+.sidebar, placessidebar, placessidebar row { background: #0e1622; }
+
+/* Sidebar rows: selected on selection with bright_foreground text, hovered on
+   lighter_background. */
+placessidebar row:selected, placessidebar row:selected:hover { background: #4e403c; color: #eeba8a; }
+placessidebar row:hover { background: #41332f; }
+
+/* List rows: hovered on lighter_background (placed before the selected rule so a selected row
+   keeps its colour under the pointer). */
+list row:hover { background: #41332f; }
+
+/* Selected rows in lists and tree views: selection, bright_foreground text. */
+treeview.view:selected, treeview.view:selected:focus, list row:selected { background: #4e403c; color: #eeba8a; }
+
+/* Column headings in tree views: background, dark_foreground text, darker_background edge. */
+treeview.view header button { background: #141d2d; color: #9a6e45; border-color: #0b111e; }
+
+/* Separator lines: darker_background. */
+separator { background: #0b111e; }
+
+/* Frame outlines: darker_background. */
+frame > border, .frame { border-color: #0b111e; }
+
+/* Buttons at rest: dark_background, foreground text, dark_foreground border. */
+button { background-image: none; background-color: #0e1622; color: #e0a269; border: 1px solid #9a6e45; box-shadow: none; text-shadow: none; }
+
+/* Header bar, toolbar, path bar and flat buttons: bare at rest (placed before the state rules so
+   hover, focus and press still apply). */
+headerbar button.image-button, .titlebar button.image-button, headerbar button.titlebutton, .titlebar button.titlebutton, toolbar button, .path-bar button, button.flat { background-color: transparent; border-color: transparent; }
+
+/* Button hover and focus: lighter_background, accent border plus inset shadow for a 2px accent
+   ring. */
+button:hover, button:focus { background-color: #41332f; border-color: #eb9d52; box-shadow: inset 0 0 0 1px #eb9d52; }
+
+/* Button pressed or toggled on: selection, dark_foreground border. */
+button:active, button:checked { background-color: #4e403c; border-color: #9a6e45; box-shadow: none; }
+
+/* Disabled button text: muted. */
+button:disabled { color: #8b7d71; }
+
+/* Suggested and default buttons: accent, background text. */
+button.suggested-action, button.default { background-color: #eb9d52; color: #141d2d; border-color: #eb9d52; }
+
+/* Suggested button hover and focus: 2px bright_foreground inset ring. */
+button.suggested-action:hover, button.suggested-action:focus { box-shadow: inset 0 0 0 2px #eeba8a; }
+
+/* Destructive buttons: red, bright_foreground text. */
+button.destructive-action { background-color: #ac5539; color: #eeba8a; border-color: #ac5539; }
+
+/* Destructive button hover and focus: bright_red with the accent ring. */
+button.destructive-action:hover, button.destructive-action:focus { background-color: #cb6647; border-color: #eb9d52; box-shadow: inset 0 0 0 1px #eb9d52; }
+
+/* Text fields: lighter_background, foreground text, dark_foreground border. */
+entry { background-image: none; background-color: #41332f; color: #e0a269; border: 1px solid #9a6e45; box-shadow: none; }
+
+/* Focused text field: accent border plus inset shadow. */
+entry:focus { border-color: #eb9d52; box-shadow: inset 0 0 0 1px #eb9d52; }
+
+/* Selected text in text fields: selection, bright_foreground text. */
+entry selection { background: #4e403c; color: #eeba8a; }
+
+/* Menus and popovers: dark_background, foreground text, darker_background edge. */
+menu, .menu, .context-menu, popover, popover.background { background-color: #0e1622; color: #e0a269; border-color: #0b111e; }
+
+/* Hovered menu items: lighter_background, foreground text. */
+menuitem:hover, menu menuitem:hover { background-color: #41332f; color: #e0a269; }
+
+/* Disabled menu items and shortcut hints: muted. */
+menuitem:disabled, menuitem accelerator { color: #8b7d71; }
+
+/* Scrollbar thumb: muted at rest, accent on hover, bright_foreground while dragging. */
+scrollbar slider { background-color: #8b7d71; }
+scrollbar slider:hover { background-color: #eb9d52; }
+scrollbar slider:active { background-color: #eeba8a; }
+
+/* Scrollbar track: lighter_background. */
+scrollbar trough { background-color: #41332f; }
+
+/* Switch track: lighter_background off, accent on. */
+switch { background-color: #41332f; border: none; box-shadow: none; }
+switch:checked { background-color: #eb9d52; }
+
+/* Switch knob: background. */
+switch slider { background-image: none; background-color: #141d2d; border: none; box-shadow: none; }
+
+/* Tooltips: dark_background, foreground text, darker_background border. */
+tooltip, tooltip.background { background-color: #0e1622; color: #e0a269; border: 1px solid #0b111e; text-shadow: none; }
+tooltip * { color: #e0a269; text-shadow: none; }
+
+/* Dim text (secondary labels): muted at full opacity. */
+.dim-label { color: #8b7d71; opacity: 1; }
+
+/* Selected text in text views and labels: selection, bright_foreground text. */
+textview text selection, label selection { background: #4e403c; color: #eeba8a; }
+
+/* ---- Widgets Adwaita paints with fixed colours ----
+   GTK3's Adwaita-dark writes most widget colours as fixed values that the named colours above
+   never reach, so each widget needs its own rule. User CSS also outranks Adwaita's
+   unfocused-window (backdrop) rules, so these colours stay the same when a window loses focus. */
+
+/* Windows and dialogs: background, foreground text. */
+window, .background, dialog { background-color: #141d2d; color: #e0a269; }
+
+/* Popup menu windows: transparent (placed after the window rule, which would otherwise fill
+   them). */
+.background.popup { background-color: transparent; }
+
+/* Views (tree views, icon grids, text areas, lists): background, foreground text,
+   bright_foreground caret. */
+.view, iconview, .view text, iconview text, textview text, textview, treeview.view, list, .content-view { background-color: #141d2d; color: #e0a269; caret-color: #eeba8a; }
+
+/* Lists inside sidebars and popovers: transparent, so the sidebar or popover colour shows. */
+.sidebar list, placessidebar list, popover.background > list, popover.background > .view, popover.background > iconview { background-color: transparent; }
+
+/* Disabled views: background, muted text. */
+.view:disabled, treeview.view:disabled, iconview:disabled, textview text:disabled { color: #8b7d71; background-color: #141d2d; }
+
+/* Selected items and text in views: selection, bright_foreground text. */
+.view:selected, .view:selected:focus, iconview:selected, iconview:selected:focus, .view text:selected, textview text:selected, iconview text:selected { background-color: #4e403c; color: #eeba8a; }
+
+/* Tree view grid and tree lines: darker_background. */
+treeview.view { border-left-color: #0b111e; border-top-color: #0b111e; }
+
+/* Tree view lines on selected rows: selection. */
+treeview.view:selected { border-left-color: #4e403c; border-top-color: #4e403c; }
+
+/* Tree view expander arrows: muted at rest, foreground on hover. */
+treeview.view.expander { color: #8b7d71; }
+treeview.view.expander:hover { color: #e0a269; }
+
+/* Tree view separator rows: darker_background. */
+treeview.view.separator { color: #0b111e; }
+
+/* Sidebar rows in an unfocused window: foreground text (selected rows keep bright_foreground). */
+placessidebar row:backdrop:not(:selected) { color: #e0a269; }
+
+/* Check boxes and radio buttons: dark_background, dark_foreground border, foreground mark. */
+check, radio { background-image: none; background-color: #0e1622; border: 1px solid #9a6e45; box-shadow: none; color: #e0a269; }
+
+/* Check box and radio hover and focus: lighter_background, accent border (placed before the
+   checked rule so a ticked box keeps its colour under the pointer). */
+check:hover, radio:hover, check:focus, radio:focus { background-color: #41332f; border-color: #eb9d52; }
+
+/* Ticked and mixed check boxes and radios: accent, background mark. */
+check:checked, radio:checked, check:indeterminate, radio:indeterminate { background-image: none; background-color: #eb9d52; border-color: #eb9d52; color: #141d2d; }
+
+/* Ticked check box and radio hover: bright_foreground inset ring. */
+check:checked:hover, radio:checked:hover { box-shadow: inset 0 0 0 1px #eeba8a; }
+
+/* Disabled check boxes and radios: background, muted border and mark. */
+check:disabled, radio:disabled { background-color: #141d2d; border-color: #8b7d71; color: #8b7d71; }
+
+/* Slider track: lighter_background. */
+scale trough { background-color: #41332f; border: none; box-shadow: none; }
+
+/* Slider filled part: accent. */
+scale highlight, scale fill { background-color: #eb9d52; border: none; }
+
+/* Slider knob: background, dark_foreground border. */
+scale slider { background-image: none; background-color: #141d2d; border: 1px solid #9a6e45; box-shadow: none; }
+
+/* Slider knob hover and focus: accent border. */
+scale slider:hover, scale slider:focus { border-color: #eb9d52; }
+
+/* Slider knob while dragging: selection. */
+scale slider:active { background-color: #4e403c; }
+
+/* Progress and level bar tracks: lighter_background. */
+progressbar trough, levelbar trough { background-color: #41332f; border: none; }
+
+/* Progress and level bar fill: accent. */
+progressbar progress, levelbar block.filled { background-color: #eb9d52; border: none; }
+
+/* Empty level bar blocks: lighter_background. */
+levelbar block.empty { background-color: #41332f; }
+
+/* Progress bar percentage text: muted. */
+progressbar text { color: #8b7d71; }
+
+/* Notebook tab strip: dark_background, darker_background edge. */
+notebook > header { background-color: #0e1622; border-color: #0b111e; }
+
+/* Notebook tabs: muted text on the tab strip. */
+notebook > header tab { color: #8b7d71; background-color: transparent; text-shadow: none; }
+
+/* Notebook tab hover: lighter_background, foreground text (placed before the open-tab rule so
+   the open tab keeps its colour under the pointer). */
+notebook > header tab:hover { color: #e0a269; background-color: #41332f; }
+
+/* Open notebook tab: background, foreground text, 2px accent underline. */
+notebook > header tab:checked { color: #e0a269; background-color: #141d2d; box-shadow: inset 0 -2px #eb9d52; }
+
+/* Notebook page area: background. */
+notebook > stack:not(:only-child) { background-color: #141d2d; }
+
+/* Info bars: dark_background, foreground text, no border. */
+infobar > revealer > box { background-color: #0e1622; color: #e0a269; border: none; }
+
+/* Info bar kinds: info blue, warning yellow, error red, question magenta, all with background
+   text. */
+infobar.info > revealer > box { background-color: #4e6f91; color: #141d2d; }
+infobar.warning > revealer > box { background-color: #8d662c; color: #141d2d; }
+infobar.error > revealer > box { background-color: #ac5539; color: #141d2d; }
+infobar.question > revealer > box { background-color: #8b6377; color: #141d2d; }
+
+/* Info bar text: inherits the bar's or the button's text colour. */
+infobar label { color: inherit; text-shadow: none; }
+
+/* Spin buttons: lighter_background, foreground text, dark_foreground border, like text fields. */
+spinbutton { background-image: none; background-color: #41332f; color: #e0a269; border: 1px solid #9a6e45; box-shadow: none; }
+
+/* Focused spin button: accent border plus inset shadow, like text fields. */
+spinbutton:focus { border-color: #eb9d52; box-shadow: inset 0 0 0 1px #eb9d52; }
+
+/* Spin button number area: no fill or border of its own (the text field rule would draw a second
+   box inside). */
+spinbutton entry, spinbutton entry:focus { background-color: transparent; border: none; box-shadow: none; }
+
+/* Spin button +/- buttons: bare, foreground text, no ring when the spin button has focus. */
+spinbutton button, spinbutton button:focus { background-color: transparent; border: none; box-shadow: none; color: #e0a269; text-shadow: none; }
+
+/* Spin button +/- hover: lighter_background, no ring. */
+spinbutton button:hover { background-color: #41332f; box-shadow: none; }
+
+/* Pane dividers: darker_background on the 1px line only, not the wider grab area around it. */
+paned > separator { background-clip: content-box; }
+
+/* Links and link buttons: accent; visited: magenta. */
+*:link, link, button:link > label { color: #eb9d52; }
+*:visited, link:visited, button:visited > label { color: #8b6377; }
+
+/* Selected text in views: selection, bright_foreground text. */
+.view selection { background-color: #4e403c; color: #eeba8a; }
+
+/* Dialog button rows and action bars: dark_background, darker_background edge. */
+filechooser .dialog-action-area, .dialog-action-area, actionbar > revealer > box, .action-bar { background-color: #0e1622; border-color: #0b111e; }
+
+/* Search bars: dark_background, darker_background edge. */
+searchbar > revealer > box, .search-bar { background-color: #0e1622; border-color: #0b111e; }
+
+/* Overscroll glow at the ends of scrolled areas: none. */
+scrolledwindow overshoot.top, scrolledwindow overshoot.bottom, scrolledwindow overshoot.left, scrolledwindow overshoot.right { background: none; box-shadow: none; }
+
+/* Popup menu frame: darker_background border, no shadow. */
+.csd.popup decoration { box-shadow: none; border: 1px solid #0b111e; }
+
+/* Keyboard focus: GTK3 draws a dashed outline on the focused control or row; the controls above
+   already show focus as the hover look, and rows take the hover fill, so no dashes. */
+button, entry, spinbutton, check, radio, switch, scale slider, menuitem, notebook > header tab, treeview.view, .view, iconview, list row, placessidebar row, flowboxchild { outline-style: none; }
+placessidebar row:focus:not(:selected), list row:focus:not(:selected) { background-color: #41332f; }
