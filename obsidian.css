@@ -87,11 +87,12 @@
   --accent-h: 29;
   --accent-s: 79%;
   --accent-l: 62%;
-  /* Hover on Obsidian's own controls, for example the canvas buttons. */
-  --interactive-hover: #41332f;
-  /* Text inputs: the search box and every settings field, on the page colour rather than the
-     chrome around them. */
-  --background-modifier-form-field: #141d2d;
+  /* Hover on buttons, dropdowns and Obsidian's own controls, on selection, since they rest on lighter_background. */
+  --interactive-hover: #4e403c;
+  /* Hover ring on buttons, dropdowns and fields, 2px accent; the resting edge keeps Obsidian's own shadow. */
+  --input-shadow-hover: inset 0 0 0 2px #eb9d52;
+  /* Text inputs: the search box and every settings field, on lighter_background. */
+  --background-modifier-form-field: #41332f;
   --text-accent: #eb9d52;
   --text-accent-hover: #eb9d52;
   --interactive-accent: #eb9d52;
@@ -103,6 +104,8 @@
   /* Muted text */
   --text-muted: #8b7d71;
   --text-faint: #9a6e45;
+  /* Placeholder text in every field, on muted. */
+  --input-placeholder-color: #8b7d71;
 
   /* Code. Obsidian exposes a --code-* variable per token type; the template set only
      --code-normal, so every other token fell back to Obsidian's defaults, which belong to
@@ -159,8 +162,8 @@
 
   /* Gaps found by auditing every colour variable Obsidian defines against what this theme reaches. These were still Obsidian's own defaults. Ordered by how often each is used. */
 
-  /* Buttons and dropdowns, 21 uses, on the chrome colour. */
-  --interactive-normal: #0e1622;
+  /* Buttons and dropdowns, 21 uses, on lighter_background; the accent and warning buttons keep their own fills. */
+  --interactive-normal: #41332f;
 
   /* Focus ring on every button, setting and field, 45 uses, in the accent. */
   --background-modifier-border-focus: #eb9d52;
@@ -340,4 +343,29 @@
 
 .canvas-node.is-themed .canvas-node-content {
   background-color: color-mix(in oklch, var(--canvas-color) 20%, transparent);
+}
+
+/* Destructive buttons (Clear history and the like): Obsidian paints them as red text on a red tint;
+   a red fill with the bright text instead, the bright red under the pointer. */
+button.mod-destructive,
+button.mod-warning {
+  background-color: #ac5539;
+  --text-color: #eeba8a;
+  color: #eeba8a;
+}
+button.mod-destructive:hover,
+button.mod-warning:hover {
+  background-color: #cb6647;
+  --text-color: #eeba8a;
+  color: #eeba8a;
+}
+
+/* The settings sidebar: Obsidian gives its entries no hover and paints the active one with the hover
+   colour; hover on lighter_background, the active entry a selected row. */
+.vertical-tab-nav-item:hover {
+  background-color: #41332f;
+}
+body:not(.is-phone) .vertical-tab-nav-item.is-active {
+  background-color: #4e403c;
+  color: #eeba8a;
 }
