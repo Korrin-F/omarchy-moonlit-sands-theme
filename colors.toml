@@ -8,7 +8,8 @@
 # with background text and a 2px bright_foreground ring; destructive buttons red with bright_foreground text,
 # bright_red on hover. Rows (lists, menus, sidebars, tabs, pickers) hovered or under the keyboard cursor
 # lighter_background with no ring; selected, selection with bright_foreground text. Switches lighter_background off,
-# accent on, knob background; dividers darker_background, card dividers, outlines and shadows dark_background.
+# accent on, knob background; scrollbar thumb lighter_background at rest, accent under the pointer, bright_foreground
+# while dragged; dividers darker_background, card dividers, outlines and shadows dark_background.
 
 mode = "dark"
 

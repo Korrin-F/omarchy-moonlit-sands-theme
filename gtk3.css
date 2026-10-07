@@ -149,8 +149,8 @@ menuitem:hover, menu menuitem:hover { background-color: #41332f; color: #e0a269;
 /* Disabled menu items and shortcut hints: muted. */
 menuitem:disabled, menuitem accelerator { color: #8b7d71; }
 
-/* Scrollbar thumb: muted at rest, accent on hover, bright_foreground while dragging. */
-scrollbar slider { background-color: #8b7d71; }
+/* Scrollbar thumb: lighter_background at rest, accent on hover, bright_foreground while dragging. */
+scrollbar slider { background-color: #41332f; }
 scrollbar slider:hover { background-color: #eb9d52; }
 scrollbar slider:active { background-color: #eeba8a; }
 

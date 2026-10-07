@@ -71,9 +71,9 @@
    dims the text colour by opacity. */
 .dim-label, .dimmed { opacity: 1; color: #8b7d71; }
 
-/* Scrollbar: muted thumb at rest, accent under the pointer, bright_foreground while dragging;
+/* Scrollbar: raised-surface thumb at rest, accent under the pointer, bright_foreground while dragging;
    lighter_background track while the bar is expanded. */
-scrollbar > range > trough > slider { background-color: #8b7d71; }
+scrollbar > range > trough > slider { background-color: #41332f; }
 scrollbar > range > trough > slider:hover { background-color: #eb9d52; }
 scrollbar > range > trough > slider:active { background-color: #eeba8a; }
 scrollbar.overlay-indicator.hovering > range > trough { background-color: #41332f; }

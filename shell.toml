@@ -33,15 +33,15 @@ active-border-foreground = "#eb9d52 #eeba8a 90deg"
 # solid color or a Hyprland-style gradient, e.g. "rgba(...) rgba(...) 45deg".
 normal-color        = "#0e1622"
 normal-fill-alpha   = 1.0
-normal-border       = "#e0a269"
+normal-border       = "#9a6e45"
 normal-border-width = 1
-normal-border-alpha = 0.4
+normal-border-alpha = 1.0
 
 # Hover-cursor: mouse hover and the panel keyboard cursor.
 hover-cursor-color        = "#eb9d52"
 hover-cursor-fill-alpha   = 0.0
 hover-cursor-border       = "#eb9d52"
-hover-cursor-border-width = 1
+hover-cursor-border-width = 2
 hover-cursor-border-alpha = 1.0
 
 # Focus: Qt activeFocus. Mirror the hover-cursor values by default so
@@ -49,20 +49,22 @@ hover-cursor-border-alpha = 1.0
 # — themes that want focus to stand out override these four lines.
 focus-color        = "#eb9d52"
 focus-fill-alpha   = 0.0
-focus-border       = "#e0a269"
-focus-border-width = 1
-focus-border-alpha = 0.25
+focus-border       = "#eb9d52"
+focus-border-width = 2
+focus-border-alpha = 1.0
 
 # Selected: persistent chosen/current state.
 selected-color        = "#eb9d52"
-selected-fill-alpha   = 0.18
-selected-border       = "#e0a269"
-selected-border-width = 0
+selected-fill-alpha   = 0.27
+selected-border       = "#9a6e45"
+selected-border-width = 1
 selected-border-alpha = 1.0
 
 # Momentary fills.
-pressed-fill-alpha   = 0.22
-selection-fill-alpha = 0.35
+pressed-color        = "#4e403c"
+pressed-fill-alpha   = 1.0
+selection-color      = "#4e403c"
+selection-fill-alpha = 1.0
 
 [spacing]
 # `scale` multiplies shared margins, gaps, padding, controls, and panel
@@ -213,7 +215,7 @@ accent           = "#eb9d52"
 background       = "#141d2d"
 background-alpha = 0.8
 text             = "#e0a269"
-placeholder      = "#9b7555"
+placeholder      = "muted"
 text-error       = "#ac5539"
 border           = "hyprland.active-border"
 border-active    = "hyprland.active-border"
@@ -233,5 +235,5 @@ scrim-alpha             = 0.5
 text                    = "#e0a269"
 selected-border         = "#eb9d52"
 selected-border-alpha   = 1.0
-unselected-border       = "#e0a269"
-unselected-border-alpha = 0.28
+unselected-border       = "#9a6e45"
+unselected-border-alpha = 1.0
