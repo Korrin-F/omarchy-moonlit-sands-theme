@@ -1,0 +1,197 @@
+/* GTK4 / libadwaita colours for this theme. Omarchy installs this file as
+   ~/.local/state/omarchy/current/theme/gtk.css on every theme change, and
+   ~/.config/gtk-4.0/gtk.css is linked to that. Apps read it at start; reopen one to see a change. */
+
+@define-color accent_bg_color #eb9d52;
+@define-color accent_fg_color #141d2d;
+@define-color accent_color #eb9d52;
+
+@define-color window_bg_color #141d2d;
+@define-color window_fg_color #e0a269;
+/* view_bg_color: the content pane (Files list, editor views) on background; header bars and
+   sidebars stay on dark_background. */
+@define-color view_bg_color #141d2d;
+@define-color view_fg_color #e0a269;
+@define-color headerbar_bg_color #0e1622;
+@define-color headerbar_fg_color #e0a269;
+@define-color headerbar_border_color #0b111e;
+@define-color sidebar_bg_color #0e1622;
+@define-color sidebar_fg_color #e0a269;
+@define-color sidebar_backdrop_color #0e1622;
+@define-color card_bg_color #141d2d;
+@define-color card_fg_color #e0a269;
+@define-color card_shade_color #0e1622;
+@define-color dialog_bg_color #0e1622;
+@define-color dialog_fg_color #e0a269;
+@define-color popover_bg_color #0e1622;
+@define-color popover_fg_color #e0a269;
+
+@define-color destructive_bg_color #ac5539;
+@define-color destructive_fg_color #141d2d;
+@define-color destructive_color #ac5539;
+@define-color success_bg_color #696e35;
+@define-color success_fg_color #141d2d;
+@define-color success_color #696e35;
+@define-color warning_bg_color #8d662c;
+@define-color warning_fg_color #141d2d;
+@define-color warning_color #8d662c;
+@define-color error_bg_color #ac5539;
+@define-color error_fg_color #141d2d;
+@define-color error_color #ac5539;
+
+/* ---- Widget rules ----
+   libadwaita derives several colours by mixing the text colour at a low opacity over the
+   surface ("currentColor N%"), which lands on greys that belong to no palette slot. The
+   rules below replace those mixes with solid palette colours. Selectors match libadwaita 1.9
+   and Files (nautilus) 50. User CSS outranks the app's own, so plain selectors are enough. */
+
+/* Content-side header bar (Files, other split-view apps): libadwaita draws it flat over the
+   page, so it would take background; dark_background, like the sidebar's header. */
+.content-pane headerbar { background-color: #0e1622; }
+
+/* Files path bar: libadwaita fills it with the text colour at 10% over the header, a grey off
+   the palette; lighter_background, so it stands out from the dark_background header. */
+.nautilus-pathbar { background-color: #41332f; }
+
+/* Sidebar rows: selected on selection with bright_foreground text; hovered on lighter_background. */
+.navigation-sidebar row:selected,
+.navigation-sidebar child:selected,
+.navigation-sidebar flowboxchild:selected,
+.navigation-sidebar row.activatable:selected:active,
+.navigation-sidebar child.activatable:selected:active,
+.navigation-sidebar flowboxchild:selected:active { background-color: #4e403c; color: #eeba8a; }
+.navigation-sidebar row.activatable:hover,
+.navigation-sidebar child.activatable:hover,
+.navigation-sidebar flowboxchild:hover,
+.navigation-sidebar row.activatable:selected:hover,
+.navigation-sidebar child.activatable:selected:hover,
+.navigation-sidebar flowboxchild:selected:hover { background-color: #41332f; }
+
+/* Dim labels (column headings, sizes, dates, subtitles): muted at full opacity, where libadwaita
+   dims the text colour by opacity. */
+.dim-label, .dimmed { opacity: 1; color: #8b7d71; }
+
+/* Scrollbar: muted thumb at rest, accent under the pointer, bright_foreground while dragging;
+   lighter_background track while the bar is expanded. */
+scrollbar > range > trough > slider { background-color: #8b7d71; }
+scrollbar > range > trough > slider:hover { background-color: #eb9d52; }
+scrollbar > range > trough > slider:active { background-color: #eeba8a; }
+scrollbar.overlay-indicator.hovering > range > trough { background-color: #41332f; }
+
+/* Toolbar-view top bar above the content-side header: dark_background, so no strip of
+   background shows between the window border and the header. */
+.content-pane toolbarview > .top-bar { background-color: #0e1622; }
+
+/* Rows in lists and grids (Files list and icon views, and lists elsewhere): libadwaita paints the
+   selected row as the accent at 25% over the page. Selected on selection with bright_foreground
+   text; hovered on lighter_background. */
+listview > row:selected,
+columnview > listview > row:selected,
+gridview > child:selected,
+row:selected,
+row.activatable:selected:active,
+row.activatable:selected.has-open-popup { background-color: #4e403c; color: #eeba8a; }
+listview > row.activatable:hover,
+columnview > listview > row.activatable:hover,
+gridview > child.activatable:hover,
+row.activatable:selected:hover { background-color: #41332f; }
+
+/* Files: the solid star on a favourited item, an active state, in accent. */
+button.star.starred { color: #eb9d52; }
+
+/* Dividers everywhere (menus, sidebar, lists, control borders): darker_background. libadwaita
+   derives --border-color as the text colour at 15% over the surface, a grey off the palette. */
+:root { --border-color: #0b111e; }
+
+/* Menu shortcut labels and disabled menu items: libadwaita dims them by opacity, which lands on a
+   grey; muted instead. */
+popover.menu accelerator { color: #8b7d71; }
+popover.menu modelbutton:disabled label, popover.menu modelbutton:disabled accelerator { filter: none; color: #8b7d71; }
+
+/* Buttons: libadwaita fills a resting button with the text colour at 10% over the surface, 15%
+   hovered, 20% pressed, all off the palette. At rest dark_background with a 1px dark_foreground
+   ring; hovered lighter_background with a 2px accent ring; pressed or toggled on, selection with
+   the resting ring. Accent (suggested) and red (destructive) buttons keep their own fills; flat
+   buttons stay bare at rest. */
+button:not(.flat):not(.suggested-action):not(.destructive-action):not(.opaque) { background-color: #0e1622; outline: 1px solid #9a6e45; outline-offset: 0; }
+button:not(.suggested-action):not(.destructive-action):not(.opaque):hover { background-color: #41332f; outline: 2px solid #eb9d52; outline-offset: 0; }
+button:not(.suggested-action):not(.destructive-action):not(.opaque):active,
+button:not(.suggested-action):not(.destructive-action):not(.opaque):checked { background-color: #4e403c; outline: 1px solid #9a6e45; outline-offset: 0; }
+
+/* Switches: libadwaita paints the off track as a text-colour mix and the knob near white;
+   lighter_background off, accent on, knob background. */
+switch, switch:hover, switch:active { background-color: #41332f; }
+switch > slider, switch:checked > slider { background-color: #141d2d; box-shadow: none; }
+
+switch:checked { background-color: #eb9d52; }
+.nautilus-pathbar button:not(.flat):not(.suggested-action):not(.destructive-action):not(.opaque) { background-color: transparent; }
+columnview > header > button:not(.flat):not(.suggested-action):not(.destructive-action):not(.opaque) { background-color: transparent; outline: none; }
+columnview > header > button:not(.suggested-action):not(.destructive-action):not(.opaque):hover,
+columnview > header > button:not(.suggested-action):not(.destructive-action):not(.opaque):focus:focus-visible { background-color: #41332f; outline: none; }
+columnview > header > button > box { color: #9a6e45; }
+/* Buttons in header bars, toolbars, action bars and search bars, and the window controls: libadwaita
+   flattens them by context, not by class, so they stay bare at rest here too. */
+headerbar button:not(.raised):not(.suggested-action):not(.destructive-action):not(.opaque),
+toolbar button:not(.raised):not(.suggested-action):not(.destructive-action):not(.opaque),
+.toolbar button:not(.raised):not(.suggested-action):not(.destructive-action):not(.opaque),
+actionbar button:not(.raised):not(.suggested-action):not(.destructive-action):not(.opaque),
+searchbar button:not(.raised):not(.suggested-action):not(.destructive-action):not(.opaque),
+windowcontrols > button:not(.raised):not(.suggested-action):not(.destructive-action):not(.opaque) { background-color: transparent; outline: none; }
+
+/* Preference groups and cards: libadwaita draws their outline and two drop shadows in fixed black
+   values; draw them in dark_background instead. */
+list.boxed-list, list.content, list.boxed-list-separate > row, .card { box-shadow: 0 0 0 1px #0e1622, 0 1px 3px 1px #0e1622, 0 2px 6px 2px #0e1622; }
+
+/* Destructive buttons: libadwaita paints the label red on a 15% red tint, which mixes to pink on
+   a dark surface; a solid red fill with bright_foreground text instead, bright_red under the
+   pointer. */
+button.destructive-action { background-color: #ac5539; color: #eeba8a; }
+button.destructive-action:hover { background-color: #cb6647; outline: 2px solid #eb9d52; outline-offset: 0; }
+
+/* Keyboard focus looks the same as pointer hover: lighter_background (bright_red on destructive
+   buttons) and a 2px accent ring; accent buttons take a bright_foreground ring, since accent on
+   accent would vanish. */
+button:not(.suggested-action):not(.destructive-action):not(.opaque):focus:focus-visible { background-color: #41332f; outline: 2px solid #eb9d52; outline-offset: 0; }
+button.destructive-action:focus:focus-visible { background-color: #cb6647; outline: 2px solid #eb9d52; outline-offset: 0; }
+button.suggested-action:hover, button.suggested-action:focus:focus-visible { outline: 2px solid #eeba8a; outline-offset: 0; }
+dialog.alert .response-area > button:not(.suggested-action):not(.destructive-action):not(.opaque):hover { background-color: #41332f; background-image: none; outline: 2px solid #eb9d52; outline-offset: 0; }
+headerbar button:not(.raised):not(.suggested-action):not(.destructive-action):not(.opaque):hover,
+toolbar button:not(.raised):not(.suggested-action):not(.destructive-action):not(.opaque):hover,
+.toolbar button:not(.raised):not(.suggested-action):not(.destructive-action):not(.opaque):hover,
+actionbar button:not(.raised):not(.suggested-action):not(.destructive-action):not(.opaque):hover,
+searchbar button:not(.raised):not(.suggested-action):not(.destructive-action):not(.opaque):hover,
+windowcontrols > button:not(.raised):not(.suggested-action):not(.destructive-action):not(.opaque):hover,
+headerbar button:not(.raised):not(.suggested-action):not(.destructive-action):not(.opaque):focus:focus-visible,
+toolbar button:not(.raised):not(.suggested-action):not(.destructive-action):not(.opaque):focus:focus-visible,
+.toolbar button:not(.raised):not(.suggested-action):not(.destructive-action):not(.opaque):focus:focus-visible,
+actionbar button:not(.raised):not(.suggested-action):not(.destructive-action):not(.opaque):focus:focus-visible,
+searchbar button:not(.raised):not(.suggested-action):not(.destructive-action):not(.opaque):focus:focus-visible,
+windowcontrols > button:not(.raised):not(.suggested-action):not(.destructive-action):not(.opaque):focus:focus-visible { background-color: #41332f; outline: 2px solid #eb9d52; outline-offset: 0; }
+/* Buttons in a popover that opens from a header bar (Files' search filters) are ordinary buttons. */
+headerbar popover button:not(.flat):not(.suggested-action):not(.destructive-action):not(.opaque) { background-color: #0e1622; outline: 1px solid #9a6e45; outline-offset: 0; }
+/* Pressed, in every context the rules above single out, so the press wins over the hover. */
+dialog.alert .response-area > button:not(.suggested-action):not(.destructive-action):not(.opaque):active,
+headerbar popover button:not(.suggested-action):not(.destructive-action):not(.opaque):active,
+headerbar button:not(.raised):not(.suggested-action):not(.destructive-action):not(.opaque):active,
+toolbar button:not(.raised):not(.suggested-action):not(.destructive-action):not(.opaque):active,
+.toolbar button:not(.raised):not(.suggested-action):not(.destructive-action):not(.opaque):active,
+actionbar button:not(.raised):not(.suggested-action):not(.destructive-action):not(.opaque):active,
+searchbar button:not(.raised):not(.suggested-action):not(.destructive-action):not(.opaque):active,
+windowcontrols > button:not(.raised):not(.suggested-action):not(.destructive-action):not(.opaque):active { background-color: #4e403c; outline: 1px solid #9a6e45; outline-offset: 0; }
+button.destructive-action:active { background-color: #ac5539; outline: 1px solid #9a6e45; outline-offset: 0; }
+
+/* Text fields: libadwaita fills them with the text colour at 10% and rings the focused one with
+   accent at 50%; lighter_background instead with a 1px dark_foreground ring, and a solid 2px
+   accent ring on focus. */
+entry, spinbutton { background-color: #41332f; outline: 1px solid #9a6e45; outline-offset: -1px; }
+entry:focus-within, spinbutton:focus-within { outline: 2px solid #eb9d52; outline-offset: -2px; }
+
+/* On-screen display surfaces (Files' "Searching…" pill, toasts): libadwaita paints them as a black
+   mix; dark_background with foreground text instead. */
+.osd, toast, .floating-bar { background-color: #0e1622; color: #e0a269; }
+.floating-bar { box-shadow: none; }
+
+/* Keyboard focus on a list or grid row: libadwaita draws a grey ring, but the row is already on the
+   selection colour, so no ring. */
+listview > row:focus:focus-visible, columnview > listview > row:focus:focus-visible,
+gridview > child:focus:focus-visible, row:focus:focus-visible { outline: none; }

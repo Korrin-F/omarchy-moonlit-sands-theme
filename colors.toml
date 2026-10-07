@@ -2,6 +2,13 @@
 # The sky and the lit ground are sampled from the open flat (1-sonoran-desert-flat); the text is the open flat's moon and
 # the dry riverbed's moon highlight; the terminal colours are Sunlit Sands' hues drained and pulled toward the moon.
 # Contrast ratios in comments are against `background`.
+# Control states, for every app, pointer and keyboard alike: controls (buttons, fields, switches, chips) at rest
+# dark_background with a 1px dark_foreground ring and foreground text; hovered or keyboard-focused, lighter_background
+# with a 2px accent ring; pressed or on, selection with the resting ring; disabled text muted; accent buttons accent
+# with background text and a 2px bright_foreground ring; destructive buttons red with bright_foreground text,
+# bright_red on hover. Rows (lists, menus, sidebars, tabs, pickers) hovered or under the keyboard cursor
+# lighter_background with no ring; selected, selection with bright_foreground text. Switches lighter_background off,
+# accent on, knob background; dividers darker_background, card dividers, outlines and shadows dark_background.
 
 mode = "dark"
 
