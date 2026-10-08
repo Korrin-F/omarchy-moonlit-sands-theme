@@ -1,7 +1,7 @@
 {
   "$schema": "https://zed.dev/schema/themes/v0.2.0.json",
   "name": "Omarchy",
-  "author": "Sunlit Sands theme (Korrin-F); rendered by Omarchy from colors.toml via ~/.config/omarchy/themed/zed.json.tpl",
+  "author": "Omarchy theme; rendered by Omarchy from colors.toml via ~/.config/omarchy/themed/zed.json.tpl",
   "themes": [
     {
       "name": "Omarchy",
