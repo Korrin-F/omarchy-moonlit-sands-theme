@@ -3,8 +3,10 @@
 # - index.theme: a desktop set, linked where GTK looks and selected; the first one wins.
 # - package.json with contributes.iconThemes: a VS Code set, linked into VS Code, VSCodium and Cursor and chosen.
 # - extension.toml with icon_themes: a Zed set, linked into Zed and chosen once in its settings.
+# - the first icon the theme's obs.ovt style names: an OBS set, linked into OBS with that style if OBS is present.
 # Links left by an earlier theme's sets are removed. VS Code: reload the window after a theme switch.
 # Zed: restart once after the first install; later switches apply on their own.
+# OBS: pick Theme Yami, Style Omarchy once in Settings > Appearance; reopen OBS after a theme switch.
 set -euo pipefail
 theme_dir=$HOME/.local/state/omarchy/current/theme
 icons_dir=$HOME/.local/share/icons
@@ -32,6 +34,13 @@ zed_link=$zed_dir/extensions/installed/omarchy-icons
 zed_settings=$HOME/.config/zed/settings.json
 zed_shared_icon_theme="Omarchy Icons"
 zed_name_pattern='^[A-Za-z0-9 ._()-]+$'
+
+# OBS's config and themes folders, the style and icon links every theme shares, and the prefix its icons use.
+obs_dir=$HOME/.config/obs-studio
+obs_themes_dir=$obs_dir/themes
+obs_style_link=$obs_themes_dir/omarchy.ovt
+obs_icons_link=$obs_themes_dir/omarchy-icons
+obs_icon_prefix=theme:${obs_icons_link##*/}/
 
 # Register the linked extension in an editor's extensions.json and remove it from .obsolete.
 register_extension() {
@@ -199,6 +208,40 @@ fi
 # No Zed set: remove a dangling Zed link.
 if ! $zed_set_found && [[ -d $zed_dir && -L $zed_link && ! -e $zed_link ]]; then
   rm -f "$zed_link" || true
+fi
+
+# OBS style: link it into OBS's themes folder if OBS is present, leaving a real file under the link name alone.
+obs_style=$theme_dir/obs.ovt
+obs_style_found=false
+obs_icons_found=false
+if [[ -f $obs_style ]] && grep -qF '@OBSThemeMeta' "$obs_style" &&
+  { command -v obs >/dev/null || [[ -d $obs_dir ]]; }; then
+  obs_style_found=true
+  if ! [[ -e $obs_style_link && ! -L $obs_style_link ]] && mkdir -p "$obs_themes_dir"; then
+    if [[ -L $obs_style_link ]]; then
+      ln -sfn "$obs_style" "$obs_style_link" || true
+    elif ln -sfn "$obs_style" "$obs_style_link"; then
+      echo "OBS: style linked; pick Theme Yami, Style Omarchy once in Settings > Appearance, then reopen OBS."
+    fi
+  fi
+  # OBS set: link the first folder holding the style's first icon, leaving a real folder under the link name alone.
+  obs_icon=$(grep -oE -m 1 "$obs_icon_prefix[^)\"';[:space:]]+" "$obs_style" | head -n 1) || true
+  obs_icon=${obs_icon#"$obs_icon_prefix"}
+  for set_dir in "$theme_dir"/extra-icons/*/; do
+    set_dir=${set_dir%/}
+    [[ -n $obs_icon && -f $set_dir/$obs_icon ]] || continue
+    obs_icons_found=true
+    [[ -e $obs_icons_link && ! -L $obs_icons_link ]] || ln -sfn "$set_dir" "$obs_icons_link" || true
+    break
+  done
+fi
+
+# No OBS style or OBS set: remove a dangling OBS link.
+if ! $obs_style_found && [[ -L $obs_style_link && ! -e $obs_style_link ]]; then
+  rm -f "$obs_style_link" || true
+fi
+if ! $obs_icons_found && [[ -L $obs_icons_link && ! -e $obs_icons_link ]]; then
+  rm -f "$obs_icons_link" || true
 fi
 
 # Touch Zed's theme link so Zed re-reads the new colours.

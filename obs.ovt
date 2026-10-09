@@ -1,0 +1,695 @@
+@OBSThemeMeta {
+    name: 'Omarchy';
+    id: 'com.omarchy.Yami.Omarchy';
+    extends: 'com.obsproject.Yami';
+    author: 'Korrin-F';
+    dark: 'true';
+}
+
+@OBSThemeVars {
+    --grey1: #9a6e45;
+    --grey2: #9a6e45;
+    --grey3: #41332f;
+    --grey4: #41332f;
+    --grey5: #0e1622;
+    --grey6: #141d2d;
+    --grey7: #0e1622;
+    --grey8: #0b111e;
+
+    --white1: #eeba8a;
+    --white2: #eeba8a;
+    --white3: #eb9d52;
+    --white4: #eb9d52;
+    --white5: #8b7d71;
+
+    --black1: #0b111e;
+    --black2: #0e1622;
+    --black3: #41332f;
+    --black4: #41332f;
+    --black5: #41332f;
+
+    --blue1: #6089b2;
+    --blue2: #6089b2;
+    --blue3: #4e6f91;
+    --blue4: #4e6f91;
+    --blue5: #4e6f91;
+    --blue6: #0e1622;
+
+    --red1: #cb6647;
+    --red2: #cb6647;
+    --red3: #ac5539;
+    --red4: #ac5539;
+    --red5: #ac5539;
+    --red6: #0e1622;
+
+    --green1: #7e8844;
+    --green2: #7e8844;
+    --green3: #696e35;
+    --green4: #696e35;
+    --green5: #696e35;
+    --green6: #0e1622;
+
+    --yellow1: #a37a39;
+    --yellow2: #a37a39;
+    --yellow3: #8d662c;
+    --yellow4: #8d662c;
+    --yellow5: #8d662c;
+    --yellow6: #0e1622;
+
+    --purple1: #a67892;
+    --purple2: #a67892;
+    --purple3: #8b6377;
+    --purple4: #8b6377;
+    --purple5: #8b6377;
+    --purple6: #0e1622;
+
+    --pink1: #a67892;
+    --pink2: #a67892;
+    --pink3: #8b6377;
+    --pink4: #8b6377;
+    --pink5: #8b6377;
+    --pink6: #0e1622;
+
+    --teal1: #5d8e90;
+    --teal2: #5d8e90;
+    --teal3: #4b7172;
+    --teal4: #4b7172;
+    --teal5: #4b7172;
+    --teal6: #0e1622;
+
+    --bg_window: #0e1622;
+    --bg_base: #141d2d;
+    --bg_preview: #0b111e;
+
+    --primary: #4e403c;
+    --primary_light: #4e403c;
+    --primary_lighter: #eb9d52;
+    --primary_dark: #eb9d52;
+    --primary_darker: #eb9d52;
+
+    --warning: #a37a39;
+    --danger: #cb6647;
+
+    --text: #e0a269;
+    --text_light: #eeba8a;
+    --text_muted: #8b7d71;
+    --text_disabled: #8b7d71;
+    --text_inactive: #e0a269;
+
+    --highlight_color: #eb9d52;
+
+    --scrollbar_handle: #41332f;
+    --scrollbar_bg: #141d2d;
+    --scrollbar_hover: #eb9d52;
+    --scrollbar_down: #eeba8a;
+    --scrollbar_border: #eb9d52;
+
+    --border_color: #0b111e;
+
+    --input_bg: #0e1622;
+    --input_bg_hover: #41332f;
+    --input_bg_focus: #41332f;
+    --input_border: #9a6e45;
+    --input_border_hover: #eb9d52;
+    --input_border_focus: #eb9d52;
+
+    --list_item_bg_selected: #4e403c;
+    --list_item_bg_hover: #41332f;
+
+    --button_bg: #0e1622;
+    --button_bg_hover: #41332f;
+    --button_bg_down: #4e403c;
+    --button_bg_disabled: #0e1622;
+    --button_border: #9a6e45;
+    --button_border_hover: #eb9d52;
+    --button_border_focus: #eb9d52;
+
+    --tab_bg: #0e1622;
+    --tab_bg_hover: #41332f;
+    --tab_bg_down: #4e403c;
+    --tab_bg_disabled: #0e1622;
+    --tab_border: #0b111e;
+    --tab_border_hover: #41332f;
+    --tab_border_focus: #eb9d52;
+    --tab_border_selected: #eb9d52;
+
+    --separator_hover: #eb9d52;
+
+    --palette_window: #0e1622;
+    --palette_windowText: #e0a269;
+    --palette_base: #141d2d;
+    --palette_light: #9a6e45;
+    --palette_mid: #0e1622;
+    --palette_dark: #141d2d;
+    --palette_highlight: #4e403c;
+    --palette_highlightedText: #eeba8a;
+    --palette_text: #e0a269;
+    --palette_link: #eb9d52;
+    --palette_linkVisited: #eb9d52;
+    --palette_button: #0e1622;
+    --palette_buttonText: #e0a269;
+    --palette_text_active: #e0a269;
+    --palette_text_disabled: #8b7d71;
+    --palette_text_inactive: #e0a269;
+}
+
+QComboBox,
+QDateTimeEdit,
+QLineEdit,
+QTextEdit,
+QPlainTextEdit,
+QSpinBox,
+QDoubleSpinBox {
+    border-color: #9a6e45;
+}
+
+QPushButton:checked,
+QToolButton:checked,
+.btn-tool:checked,
+SourceSelectButton:checked {
+    border-color: #9a6e45;
+}
+
+QMenu::item:focus,
+QListView::item:focus,
+QListWidget::item:focus {
+    border-color: #41332f;
+}
+
+QMenu::item:selected:focus,
+QListView::item:selected:focus,
+QListWidget::item:selected:focus {
+    border-color: #4e403c;
+}
+
+QMenu::item:selected,
+QListView::item:selected,
+QListWidget::item:selected {
+    color: #eeba8a;
+}
+
+QMenu::item:selected:hover,
+QListView::item:selected:hover,
+QListWidget::item:selected:hover {
+    border-color: #4e403c;
+    color: #eeba8a;
+}
+
+.list-grid SceneTree::item:selected {
+    color: #eeba8a;
+}
+
+QComboBox QAbstractItemView::item:selected {
+    color: #eeba8a;
+}
+
+#ytEventList .row-selected,
+#ytEventList .row-selected:hover {
+    color: #eeba8a;
+}
+
+QListView QLineEdit,
+QListWidget QLineEdit,
+QListView QLineEdit:focus,
+QListWidget QLineEdit:focus {
+    border-color: #eb9d52;
+}
+
+idian--Row.cursor-pointer.hover {
+    border-color: #41332f;
+}
+
+idian--RowFrame.hover idian--Row,
+idian--RowFrame.hover .row-buddy {
+    border-color: #41332f;
+}
+
+OBSDock QToolBar QToolButton:hover {
+    border-color: #eb9d52;
+}
+
+OBSDock QToolBar QToolButton:disabled {
+    background: transparent;
+}
+
+.btn-tool,
+QPushButton#sourcePropertiesButton,
+QPushButton#sourceFiltersButton {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.btn-tool:hover,
+.btn-tool:focus,
+QPushButton#sourcePropertiesButton:hover,
+QPushButton#sourcePropertiesButton:focus,
+QPushButton#sourceFiltersButton:hover,
+QPushButton#sourceFiltersButton:focus {
+    background-color: transparent;
+    border-color: #eb9d52;
+}
+
+QPushButton#sourcePropertiesButton:pressed,
+QPushButton#sourceFiltersButton:pressed {
+    background-color: #4e403c;
+    border-color: #9a6e45;
+}
+
+.btn-tool:disabled,
+QPushButton#sourcePropertiesButton:disabled,
+QPushButton#sourceFiltersButton:disabled {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+idian--ToggleSwitch,
+idian--CollapsibleRow idian--PropertiesList idian--ToggleSwitch {
+    qproperty-background: #41332f;
+    qproperty-background_hover: #41332f;
+    qproperty-background_checked: #eb9d52;
+    qproperty-background_checked_hover: #eb9d52;
+    qproperty-handleColor: #141d2d;
+}
+
+idian--ToggleSwitch.hover {
+    border-color: #eb9d52;
+}
+
+idian--Row idian--ToggleSwitch.hover,
+idian--Row.hover > idian--ToggleSwitch.row-buddy {
+    border-color: #eb9d52;
+}
+
+idian--Row QComboBox.hover {
+    border-color: #eb9d52;
+}
+
+idian--CheckBox.hover::indicator,
+idian--CheckBox.checked.hover::indicator {
+    border-color: #eb9d52;
+}
+
+idian--RowFrame.hover idian--ExpandButton::indicator {
+    border-color: #eb9d52;
+}
+
+QSlider::sub-page:horizontal,
+QSlider::add-page:vertical {
+    background-color: #eb9d52;
+}
+
+.slider-tbar::sub-page:horizontal {
+    background: #eb9d52;
+}
+
+QSlider::handle,
+QSlider::handle:hover,
+QSlider::handle:pressed {
+    background-color: #eb9d52;
+}
+
+QProgressBar::chunk {
+    background: #eb9d52;
+    border-top-color: #eb9d52;
+    border-bottom-color: #eb9d52;
+}
+
+.button-primary {
+    background-color: #eb9d52;
+    border-color: #eb9d52;
+    color: #141d2d;
+}
+
+.button-primary:hover,
+.button-primary:focus {
+    background-color: #eb9d52;
+    border-color: #eeba8a;
+    color: #141d2d;
+}
+
+QTableView {
+    gridline-color: #0b111e;
+}
+
+.text-bright {
+    color: #eeba8a;
+}
+
+VolumeMeter {
+    qproperty-backgroundNominalColor: #41332f;
+    qproperty-backgroundWarningColor: #41332f;
+    qproperty-backgroundErrorColor: #41332f;
+    qproperty-magnitudeColor: #0b111e;
+    qproperty-foregroundNominalColorDisabled: #8b7d71;
+    qproperty-foregroundWarningColorDisabled: #8b7d71;
+    qproperty-foregroundErrorColorDisabled: #8b7d71;
+}
+
+.icon-plus {
+    qproperty-icon: url(theme:omarchy-icons/Dark/plus.svg);
+}
+
+.icon-minus {
+    qproperty-icon: url(theme:omarchy-icons/Dark/minus.svg);
+}
+
+.icon-trash {
+    qproperty-icon: url(theme:omarchy-icons/Dark/trash.svg);
+}
+
+.icon-clear {
+    qproperty-icon: url(theme:omarchy-icons/Dark/entry-clear.svg);
+}
+
+.icon-gear {
+    qproperty-icon: url(theme:omarchy-icons/Dark/settings/general.svg);
+}
+
+.icon-dots-vert {
+    qproperty-icon: url(theme:omarchy-icons/Dark/dots-vert.svg);
+}
+
+.icon-refresh {
+    qproperty-icon: url(theme:omarchy-icons/Dark/refresh.svg);
+}
+
+.icon-cogs {
+    qproperty-icon: url(theme:omarchy-icons/Dark/cogs.svg);
+}
+
+.icon-touch {
+    qproperty-icon: url(theme:omarchy-icons/Dark/interact.svg);
+}
+
+.icon-up {
+    qproperty-icon: url(theme:omarchy-icons/Dark/up.svg);
+}
+
+.icon-down {
+    qproperty-icon: url(theme:omarchy-icons/Dark/down.svg);
+}
+
+.icon-pause {
+    qproperty-icon: url(theme:omarchy-icons/Dark/media-pause.svg);
+}
+
+.icon-filter {
+    qproperty-icon: url(theme:omarchy-icons/Dark/filter.svg);
+}
+
+.icon-revert {
+    qproperty-icon: url(theme:omarchy-icons/Dark/revert.svg);
+}
+
+.icon-save {
+    qproperty-icon: url(theme:omarchy-icons/Dark/save.svg);
+}
+
+.icon-close {
+    qproperty-icon: url(theme:omarchy-icons/Dark/close.svg);
+}
+
+.icon-layout-vertical {
+    qproperty-icon: url(theme:omarchy-icons/Dark/layout-vertical.svg);
+}
+
+.icon-layout-horizontal {
+    qproperty-icon: url(theme:omarchy-icons/Dark/layout-horizontal.svg);
+}
+
+.icon-media-play {
+    qproperty-icon: url(theme:omarchy-icons/Dark/media/media_play.svg);
+}
+
+.icon-media-pause {
+    qproperty-icon: url(theme:omarchy-icons/Dark/media/media_pause.svg);
+}
+
+.icon-media-restart {
+    qproperty-icon: url(theme:omarchy-icons/Dark/media/media_restart.svg);
+}
+
+.icon-media-stop {
+    qproperty-icon: url(theme:omarchy-icons/Dark/media/media_stop.svg);
+}
+
+.icon-media-next {
+    qproperty-icon: url(theme:omarchy-icons/Dark/media/media_next.svg);
+}
+
+.icon-media-prev {
+    qproperty-icon: url(theme:omarchy-icons/Dark/media/media_previous.svg);
+}
+
+QMenu::right-arrow {
+    image: url(theme:omarchy-icons/Dark/expand.svg);
+}
+
+QDockWidget {
+    titlebar-close-icon: url(theme:omarchy-icons/Dark/close.svg);
+    titlebar-normal-icon: url(theme:omarchy-icons/Dark/popout.svg);
+}
+
+QPushButton#sourcePropertiesButton {
+    qproperty-icon: url(theme:omarchy-icons/Dark/settings/general.svg);
+}
+
+QPushButton#sourceFiltersButton {
+    qproperty-icon: url(theme:omarchy-icons/Dark/filter.svg);
+}
+
+QToolBarExtension {
+    qproperty-icon: url(theme:omarchy-icons/Dark/dots-vert.svg);
+}
+
+QComboBox::down-arrow,
+QDateTimeEdit::down-arrow {
+    image: url(theme:omarchy-icons/Dark/collapse.svg);
+}
+
+QComboBox::down-arrow:editable,
+QDateTimeEdit::down-arrow:editable {
+    image: url(theme:omarchy-icons/Dark/collapse.svg);
+}
+
+QSpinBox::up-arrow,
+QDoubleSpinBox::up-arrow {
+    image: url(theme:omarchy-icons/Dark/up.svg);
+}
+
+QSpinBox::down-arrow,
+QDoubleSpinBox::down-arrow {
+    image: url(theme:omarchy-icons/Dark/down.svg);
+}
+
+QPushButton::menu-indicator {
+    image: url(theme:omarchy-icons/Dark/collapse.svg);
+}
+
+.btn-mute {
+    qproperty-icon: url(theme:omarchy-icons/Dark/settings/audio.svg);
+}
+
+.btn-mute.checked {
+    qproperty-icon: url(theme:omarchy-icons/Dark/mute.svg);
+}
+
+.btn-mute.mute-warning {
+    qproperty-icon: url(theme:omarchy-icons/Dark/unassigned.svg);
+}
+
+.btn-monitor {
+    qproperty-icon: url(theme:omarchy-icons/Dark/headphones-off.svg);
+}
+
+.btn-monitor.checked {
+    qproperty-icon: url(theme:omarchy-icons/Dark/headphones.svg);
+}
+
+OBSBasicSettings {
+    qproperty-generalIcon: url(theme:omarchy-icons/Dark/settings/general.svg);
+    qproperty-appearanceIcon: url(theme:omarchy-icons/Dark/settings/appearance.svg);
+    qproperty-streamIcon: url(theme:omarchy-icons/Dark/settings/stream.svg);
+    qproperty-outputIcon: url(theme:omarchy-icons/Dark/settings/output.svg);
+    qproperty-audioIcon: url(theme:omarchy-icons/Dark/settings/audio.svg);
+    qproperty-videoIcon: url(theme:omarchy-icons/Dark/settings/video.svg);
+    qproperty-hotkeysIcon: url(theme:omarchy-icons/Dark/settings/hotkeys.svg);
+    qproperty-accessibilityIcon: url(theme:omarchy-icons/Dark/settings/accessibility.svg);
+    qproperty-advancedIcon: url(theme:omarchy-icons/Dark/settings/advanced.svg);
+}
+
+QCheckBox::indicator:unchecked,
+QGroupBox::indicator:unchecked,
+QTableView::indicator:unchecked {
+    image: url(theme:omarchy-icons/Yami/checkbox_unchecked.svg);
+}
+
+QCheckBox::indicator:unchecked:hover,
+QGroupBox::indicator:unchecked:hover,
+QTableView::indicator:unchecked:hover {
+    image: url(theme:omarchy-icons/Yami/checkbox_unchecked_focus.svg);
+}
+
+QCheckBox::indicator:checked,
+QGroupBox::indicator:checked,
+QTableView::indicator:checked {
+    image: url(theme:omarchy-icons/Yami/checkbox_checked.svg);
+}
+
+QCheckBox::indicator:checked:hover,
+QGroupBox::indicator:checked:hover,
+QTableView::indicator:checked:hover {
+    image: url(theme:omarchy-icons/Yami/checkbox_checked_focus.svg);
+}
+
+QCheckBox::indicator:checked:disabled,
+QGroupBox::indicator:checked:disabled,
+QTableView::indicator:checked:disabled {
+    image: url(theme:omarchy-icons/Yami/checkbox_checked_disabled.svg);
+}
+
+QCheckBox::indicator:unchecked:disabled,
+QGroupBox::indicator:unchecked:disabled,
+QTableView::indicator:unchecked:disabled {
+    image: url(theme:omarchy-icons/Yami/checkbox_unchecked_disabled.svg);
+}
+
+.indicator-lock::indicator:checked,
+.indicator-lock::indicator:checked:hover {
+    image: url(theme:omarchy-icons/Dark/locked.svg);
+}
+
+.indicator-visibility::indicator:checked,
+.indicator-visibility::indicator:checked:hover {
+    image: url(theme:omarchy-icons/Dark/visible.svg);
+}
+
+.indicator-expand::indicator:checked,
+.indicator-expand::indicator:checked:hover {
+    image: url(theme:omarchy-icons/Dark/expand.svg);
+}
+
+.indicator-expand::indicator:unchecked,
+.indicator-expand::indicator:unchecked:hover {
+    image: url(theme:omarchy-icons/Dark/collapse.svg);
+}
+
+OBSBasic {
+    qproperty-imageIcon: url(theme:omarchy-icons/Dark/sources/image.svg);
+    qproperty-colorIcon: url(theme:omarchy-icons/Dark/sources/brush.svg);
+    qproperty-slideshowIcon: url(theme:omarchy-icons/Dark/sources/slideshow.svg);
+    qproperty-audioInputIcon: url(theme:omarchy-icons/Dark/sources/microphone.svg);
+    qproperty-audioOutputIcon: url(theme:omarchy-icons/Dark/settings/audio.svg);
+    qproperty-desktopCapIcon: url(theme:omarchy-icons/Dark/settings/video.svg);
+    qproperty-windowCapIcon: url(theme:omarchy-icons/Dark/sources/window.svg);
+    qproperty-gameCapIcon: url(theme:omarchy-icons/Dark/sources/gamepad.svg);
+    qproperty-cameraIcon: url(theme:omarchy-icons/Dark/sources/camera.svg);
+    qproperty-textIcon: url(theme:omarchy-icons/Dark/sources/text.svg);
+    qproperty-mediaIcon: url(theme:omarchy-icons/Dark/sources/media.svg);
+    qproperty-browserIcon: url(theme:omarchy-icons/Dark/sources/globe.svg);
+    qproperty-groupIcon: url(theme:omarchy-icons/Dark/sources/group.svg);
+    qproperty-sceneIcon: url(theme:omarchy-icons/Dark/sources/scene.svg);
+    qproperty-defaultIcon: url(theme:omarchy-icons/Dark/sources/default.svg);
+    qproperty-audioProcessOutputIcon: url(theme:omarchy-icons/Dark/sources/windowaudio.svg);
+}
+
+OBSYoutubeActions {
+    qproperty-thumbPlaceholder: url(theme:omarchy-icons/Dark/sources/image.svg);
+}
+
+QDateTimeEdit::down-arrow {
+    image: url(theme:omarchy-icons/Dark/down.svg);
+}
+
+#qt_calendar_monthbutton::menu-indicator {
+    image: url(theme:omarchy-icons/Dark/down.svg);
+}
+
+QCalendarWidget #qt_calendar_prevmonth {
+    qproperty-icon: url(theme:omarchy-icons/Dark/left.svg);
+}
+
+QCalendarWidget #qt_calendar_nextmonth {
+    qproperty-icon: url(theme:omarchy-icons/Dark/right.svg);
+}
+
+.btn-create-new {
+    qproperty-icon: url(theme:omarchy-icons/Dark/plus.svg);
+}
+
+idian--Row QComboBox::down-arrow {
+    image: url(theme:omarchy-icons/Dark/collapse.svg);
+}
+
+idian--CheckBox.keyFocus::indicator,
+idian--Row.hover > idian--CheckBox.row-buddy::indicator {
+    image: url(theme:omarchy-icons/Yami/checkbox_unchecked_focus.svg);
+}
+
+idian--CheckBox.keyFocus.checked::indicator,
+idian--Row.hover > idian--CheckBox.row-buddy.checked::indicator {
+    image: url(theme:omarchy-icons/Yami/checkbox_checked_focus.svg);
+}
+
+idian--ExpandButton::indicator {
+    image: url(theme:omarchy-icons/Dark/down.svg);
+}
+
+idian--ExpandButton::indicator:checked {
+    image: url(theme:omarchy-icons/Dark/up.svg);
+}
+
+.btn-mute {
+    color: #b48153;
+}
+
+VolumeControl .mixer-category {
+    color: #e0a269;
+}
+
+VolumeControl.volume-pinned .mixer-category {
+    background: #41332f;
+    color: #e0a269;
+}
+
+.btn-monitor:focus {
+    border-color: #eb9d52;
+}
+
+.btn-monitor.checked {
+    background: #4e403c;
+    color: #e0a269;
+}
+
+.btn-monitor.checked:focus,
+.btn-monitor:checked:focus {
+    color: #e0a269;
+    border-color: #eb9d52;
+}
+
+.btn-monitor.checked:hover {
+    background: #4e403c;
+    border-color: #eb9d52;
+    color: #e0a269;
+}
+
+.toggle-hidden:checked {
+    background: #4e403c;
+    border-color: transparent;
+}
+
+.toggle-hidden:checked:hover {
+    border-color: #eb9d52;
+}
+
+#streamButton:!hover:!pressed.state-active,
+#recordButton:!hover:!pressed.state-active {
+    background: #ac5539;
+    color: #eeba8a;
+}
+
+#streamButton:hover:!pressed.state-active,
+#recordButton:hover:!pressed.state-active {
+    background: #ac5539;
+    color: #eeba8a;
+}
