@@ -1,7 +1,4 @@
-/* GTK3 colours for this theme (the portal file chooser, Evince, Inkscape, GNOME Disks and other
-   GTK3 apps). Omarchy installs this file as ~/.local/state/omarchy/current/theme/gtk3.css on every
-   theme change, and ~/.config/gtk-3.0/gtk.css is linked to that. GTK3 reads it at start: reopen an
-   app, and restart xdg-desktop-portal-gtk for the file chooser, to see a change. */
+/* GTK3 colours for this theme. */
 
 /* Window and content surfaces: background. */
 @define-color theme_bg_color #141d2d;
@@ -71,9 +68,7 @@
 @define-color app_notification_border #0b111e;
 
 /* ---- Widget rules ----
-   GTK3's Adwaita derives several colours from shades and mixes of the named colours above,
-   which land on colours that belong to no palette slot. The rules below set solid palette
-   colours instead. User CSS outranks the theme's own, so plain selectors are enough. */
+   The rules below set solid palette colours. */
 
 /* Header bars and title bars: dark_background, foreground text, darker_background edge. */
 headerbar, .titlebar, .csd .titlebar { background: #0e1622; color: #e0a269; border-color: #0b111e; box-shadow: none; }
@@ -86,8 +81,7 @@ headerbar, .titlebar, .csd .titlebar { background: #0e1622; color: #e0a269; bord
 placessidebar row:selected, placessidebar row:selected:hover { background: #4e403c; color: #eeba8a; }
 placessidebar row:hover { background: #41332f; }
 
-/* List rows: hovered on lighter_background (placed before the selected rule so a selected row
-   keeps its colour under the pointer). */
+/* List rows: hovered on lighter_background. */
 list row:hover { background: #41332f; }
 
 /* Selected rows in lists and tree views: selection, bright_foreground text. */
@@ -105,8 +99,7 @@ frame > border, .frame { border-color: #0b111e; }
 /* Buttons at rest: dark_background, foreground text, dark_foreground border. */
 button { background-image: none; background-color: #0e1622; color: #e0a269; border: 1px solid #9a6e45; box-shadow: none; text-shadow: none; }
 
-/* Header bar, toolbar, path bar and flat buttons: bare at rest (placed before the state rules so
-   hover, focus and press still apply). */
+/* Header bar, toolbar, path bar and flat buttons: bare at rest. */
 headerbar button.image-button, .titlebar button.image-button, headerbar button.titlebutton, .titlebar button.titlebutton, toolbar button, .path-bar button, button.flat { background-color: transparent; border-color: transparent; }
 
 /* Button hover and focus: lighter_background, accent border plus inset shadow for a 2px accent
@@ -174,16 +167,12 @@ tooltip * { color: #e0a269; text-shadow: none; }
 /* Selected text in text views and labels: selection, bright_foreground text. */
 textview text selection, label selection { background: #4e403c; color: #eeba8a; }
 
-/* ---- Widgets Adwaita paints with fixed colours ----
-   GTK3's Adwaita-dark writes most widget colours as fixed values that the named colours above
-   never reach, so each widget needs its own rule. User CSS also outranks Adwaita's
-   unfocused-window (backdrop) rules, so these colours stay the same when a window loses focus. */
+/* ---- Widgets Adwaita paints with fixed colours ---- */
 
 /* Windows and dialogs: background, foreground text. */
 window, .background, dialog { background-color: #141d2d; color: #e0a269; }
 
-/* Popup menu windows: transparent (placed after the window rule, which would otherwise fill
-   them). */
+/* Popup menu windows: transparent. */
 .background.popup { background-color: transparent; }
 
 /* Views (tree views, icon grids, text areas, lists): background, foreground text,
@@ -218,8 +207,7 @@ placessidebar row:backdrop:not(:selected) { color: #e0a269; }
 /* Check boxes and radio buttons: dark_background, dark_foreground border, foreground mark. */
 check, radio { background-image: none; background-color: #0e1622; border: 1px solid #9a6e45; box-shadow: none; color: #e0a269; }
 
-/* Check box and radio hover and focus: lighter_background, accent border (placed before the
-   checked rule so a ticked box keeps its colour under the pointer). */
+/* Check box and radio hover and focus: lighter_background, accent border. */
 check:hover, radio:hover, check:focus, radio:focus { background-color: #41332f; border-color: #eb9d52; }
 
 /* Ticked and mixed check boxes and radios: accent, background mark. */
@@ -264,8 +252,7 @@ notebook > header { background-color: #0e1622; border-color: #0b111e; }
 /* Notebook tabs: muted text on the tab strip. */
 notebook > header tab { color: #8b7d71; background-color: transparent; text-shadow: none; }
 
-/* Notebook tab hover: lighter_background, foreground text (placed before the open-tab rule so
-   the open tab keeps its colour under the pointer). */
+/* Notebook tab hover: lighter_background, foreground text. */
 notebook > header tab:hover { color: #e0a269; background-color: #41332f; }
 
 /* Open notebook tab: background, foreground text, 2px accent underline. */
@@ -293,8 +280,7 @@ spinbutton { background-image: none; background-color: #41332f; color: #e0a269; 
 /* Focused spin button: accent border plus inset shadow, like text fields. */
 spinbutton:focus { border-color: #eb9d52; box-shadow: inset 0 0 0 1px #eb9d52; }
 
-/* Spin button number area: no fill or border of its own (the text field rule would draw a second
-   box inside). */
+/* Spin button number area: no fill or border of its own. */
 spinbutton entry, spinbutton entry:focus { background-color: transparent; border: none; box-shadow: none; }
 
 /* Spin button +/- buttons: bare, foreground text, no ring when the spin button has focus. */
@@ -325,7 +311,7 @@ scrolledwindow overshoot.top, scrolledwindow overshoot.bottom, scrolledwindow ov
 /* Popup menu frame: darker_background border, no shadow. */
 .csd.popup decoration { box-shadow: none; border: 1px solid #0b111e; }
 
-/* Keyboard focus: GTK3 draws a dashed outline on the focused control or row; the controls above
-   already show focus as the hover look, and rows take the hover fill, so no dashes. */
+/* Keyboard focus: no dashed outline; the controls show focus as the hover look, and rows take
+   the hover fill. */
 button, entry, spinbutton, check, radio, switch, scale slider, menuitem, notebook > header tab, treeview.view, .view, iconview, list row, placessidebar row, flowboxchild { outline-style: none; }
 placessidebar row:focus:not(:selected), list row:focus:not(:selected) { background-color: #41332f; }

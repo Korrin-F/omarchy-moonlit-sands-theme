@@ -1,6 +1,5 @@
-# Omarchy shell surfaces. Colors derive from colors.toml; sizes and the
-# typographic scale come from the keys below. Themes can ship
-# themes/<name>/shell.toml to replace this generated file.
+# Omarchy shell surfaces. Sizes and the typographic scale come from the keys
+# below.
 
 [bar]
 # Alpha companions (where present) range from 0 (invisible) to 1 (opaque).
@@ -17,9 +16,8 @@ size-horizontal  = 26
 size-vertical    = 28
 
 [hyprland]
-# Shared Hyprland-derived border tokens. Surface sections reference these so
-# lock, notifications, popups, and menu-style cards stay aligned with the
-# current Hyprland active-border gradient.
+# Shared border tokens. Surface sections reference these so lock,
+# notifications, popups, and menu-style cards use the active-border gradient.
 active-border            = "#eb9d52 #eeba8a 90deg"
 active-border-foreground = "#eb9d52 #eeba8a 90deg"
 
@@ -44,9 +42,8 @@ hover-cursor-border       = "#eb9d52"
 hover-cursor-border-width = 2
 hover-cursor-border-alpha = 1.0
 
-# Focus: Qt activeFocus. Mirror the hover-cursor values by default so
-# mouse hover, keyboard cursor, and tab focus all read as the same state
-# — themes that want focus to stand out override these four lines.
+# Focus: Qt activeFocus. Mirrors the hover-cursor values so mouse hover,
+# keyboard cursor, and tab focus all read as the same state.
 focus-color        = "#eb9d52"
 focus-fill-alpha   = 0.0
 focus-border       = "#eb9d52"
@@ -71,7 +68,7 @@ selection-fill-alpha = 1.0
 # dimensions; components keep their proportions. With scale-with-font
 # enabled, those dimensions grow/shrink with [font] base-size too. Per-token
 # overrides (in px) below pin individual values without affecting the rest
-# of the scale. Uncomment any to tune a specific surface.
+# of the scale.
 scale = 1.0
 scale-with-font = true
 # xxs                       = 2
@@ -103,12 +100,10 @@ scale-with-font = true
 [font]
 # base-size is the rem root for the type scale. Every Style.font.<token>
 # derives from it (e.g. body = base, subtitle ≈ base * 1.083,
-# heading ≈ base * 1.333). The shell only floors this at 1px; increase it
-# as much as you want.
+# heading ≈ base * 1.333). The shell only floors this at 1px.
 base-size = 12
-# Per-token overrides, in px. Uncomment any to pin a specific size without
-# affecting the rest of the scale. Useful for stylistic emphasis (a
-# minimalist theme that wants a bigger heading without scaling everything).
+# Per-token overrides, in px. They pin a specific size without affecting the
+# rest of the scale.
 # caption       = 10
 # body-small    = 11
 # body          = 12
@@ -134,8 +129,7 @@ border-alpha     = 1.0
 # border-width     = 2
 
 [tooltip]
-# Hover tooltips across the bar, panels, and buttons. background-alpha of
-# 0.97 mirrors the legacy hard-coded tooltip opacity.
+# Hover tooltips across the bar, panels, and buttons.
 background       = "#141d2d"
 background-alpha = 0.97
 text             = "#e0a269"
@@ -157,7 +151,7 @@ countdown        = "#eb9d52"
 # Same six tokens as [menu], applied to the launcher overlay. Alpha
 # companions go from 0 (invisible) to 1 (opaque). scrim is the full-screen
 # dim layer behind the card; background is the card itself. Defaults
-# mirror [menu] with the card at 0.95 to preserve the legacy translucency.
+# mirror [menu] with the card at 0.95.
 background                = "#141d2d"
 background-alpha          = 0.95
 text                      = "#e0a269"

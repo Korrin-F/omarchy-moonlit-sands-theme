@@ -1,20 +1,4 @@
-# Moonlit Sands: hand-shipped Helix theme.
-# Omarchy's built-in template generates this file from colors.toml; a copy shipped in the theme folder
-# replaces that output, for the author and for anyone who installs the theme. It carries real values in
-# [palette], so after a palette change regenerate it (delete this file, `omarchy theme refresh`, copy
-# ~/.local/state/omarchy/current/theme/helix.toml back) and re-apply the changes listed here.
-#
-# Changes from the template:
-#   ui.statusline            fg background / bg foreground  ->  fg foreground / bg dark_background  (status bar on the top of the sky)
-#   ui.statusline.inactive   bg color8                      ->  fg color8 / bg dark_background
-#   ui.bufferline            bg background                  ->  bg dark_background  (tab strip on the top of the sky, inactive tabs muted)
-#   ui.bufferline.active     underline color5               ->  underline accent    (active tab stays on the page, moon-gold underline)
-#   ui.window                fg color8                      ->  fg darker_background  (dividers on the deepest sky)
-#   ui.menu.selected         fg background / bg foreground  ->  fg foreground / bg lighter_background  (chosen row on the hover sand, as in the launcher)
-#   ui.cursorline.primary    bg lighter_background          ->  bg dark_background  (current line a quiet step below the page)
-#   [palette]                added dark_background, darker_background, accent
-# Unchanged on purpose: ui.background transparent (the terminal is the sky anyway), ui.selection on the lit sand,
-# ui.text.focus and ui.highlight on lighter_background, line numbers and dimmed text on color8 (= muted).
+# Moonlit Sands: Helix theme.
 
 # Syntax
 "keyword" = "color5"
@@ -72,7 +56,7 @@
 "diff.minus" = "color1"
 "diff.delta" = "color4"
 
-# Leave the editor background transparent so the terminal background shows through
+# Leave the editor background transparent
 "ui.background" = { }
 
 "ui.linenr" = { fg = "color8" }
